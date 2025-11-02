@@ -44,6 +44,9 @@
     'data': [
         'views/res_config_settings_views.xml',
     ],
+    'images': [
+        'static/description/cover.png',
+    ],
     'demo': [],
     'installable': True,
     'auto_install': True,
