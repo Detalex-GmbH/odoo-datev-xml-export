@@ -45,7 +45,7 @@
         'views/res_config_settings_views.xml',
     ],
     'images': [
-        'static/description/cover.png',
+        'static/description/cover.gif',
     ],
     'demo': [],
     'installable': True,
