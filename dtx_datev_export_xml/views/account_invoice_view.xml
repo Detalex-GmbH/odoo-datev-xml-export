@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <group name="accounting_info_group" position="inside">
+                <field name="datev_exported" groups="dtx_datev_export_xml.group_datev_export_status" />
+            </group>
+
+            <!-- Add datev_validation field at the top of the form - only for accounting managers -->
+            <div class="oe_title" position="after">
+                <div class="alert alert-warning" role="alert"
+                     invisible="datev_validation == False"
+                     groups="account.group_account_manager,base.group_system">
+                    <strong>🚨 DATEV Validierungsfehler:</strong>
+                    <field name="datev_validation" nolabel="1"/>
+                </div>
+            </div>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button oe_read_only"
+                    name="action_show_related_datev_exports_view"
+                    icon="fa-file-text"
+                    type="object"
+                >
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="datev_exports_count" />
+                        </span>
+                        <span class="o_stat_text">Datev XML Export</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_datev_validation" model="ir.ui.view">
+        <field name="name">account.move.datev.list</field>
+        <field name="model">account.move</field>
+        <field name="priority">800</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_manager')), (4, ref('base.group_system'))]"/>
+        <field name="arch" type="xml">
+            <list decoration-danger="datev_validation != False" create="false" edit="false">
+                <field name="name" decoration-bf="1"/>
+                <field name="partner_id" string="Kunde/Lieferant"/>
+                <field name="invoice_date" string="Rechnungsdatum"/>
+                <field name="amount_total" string="Gesamtbetrag"/>
+                <field name="state" string="Status"/>
+                <field name="datev_validation" string="🚨 Validierungsfehler" decoration-danger="datev_validation != False" groups="account.group_account_manager,base.group_system"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <filter name="late" position="after">
+                <filter name="not_datev_exported"
+                        string="To be exported to Datev"
+                        domain="['&amp;', ('datev_exported', '=', False), ('state', '!=', 'draft')]"
+                        groups="dtx_datev_export_xml.group_datev_export_status"
+                        help="Invoices that are not yet exported to Datev" />
+            </filter>
+        </field>
+    </record>
+
+    <!-- add datev_exported to account.move tree view on the beginning -->
+    <record id="view_move_tree" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="datev_exported" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- add datev_exported to account.invoice.tree view on the beginning -->
+    <record id="view_invoice_tree" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="datev_exported" />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

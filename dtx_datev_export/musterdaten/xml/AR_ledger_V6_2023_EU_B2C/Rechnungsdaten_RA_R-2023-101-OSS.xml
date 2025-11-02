@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LedgerImport xmlns="http://xml.datev.de/bedi/tps/ledger/v060" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xml.datev.de/bedi/tps/ledger/v060 Belegverwaltung_online_ledger_import_v060.xsd" version="6.0" 
+generator_info="DATEV-Musterdaten" generating_system="DATEV-Musterdaten" xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug">
+  <consolidate consolidatedAmount="24000.00" consolidatedDate="2023-01-12" consolidatedInvoiceId="R-2023-101-OSS" consolidatedCurrencyCode="EUR" consolidatedDeliveryDate="2023-01-09">
+	<accountsReceivableLedger>
+		<date>2023-01-12</date>
+		<amount>24000.00</amount>
+		<accountNo>8200</accountNo>
+		<buCode>240</buCode>
+		<tax>20.00</tax>
+		<information>Ausgangsrechnung, Lieferung an EU-Empfänger ohne UstId, z.B. OSS</information>
+		<currencyCode>EUR</currencyCode>
+		<invoiceId>R-2023-101-OSS</invoiceId>
+		<bookingText>Produkt B, Art-Nr. Art456</bookingText>
+		<ownVatId>DE333456789</ownVatId>
+		<shipFromCountry>DE</shipFromCountry>
+		<partyId>K999</partyId>
+        <shipToCountry>FR</shipToCountry>		
+		<dueDate>2023-01-26</dueDate>
+		<bpAccountNo>30100</bpAccountNo>
+		<deliveryDate>2023-01-09</deliveryDate>
+		<customerName>MusterkundeEUOhneAngabeUstId</customerName>
+		<customerCity>MusterortEU</customerCity>
+    </accountsReceivableLedger>
+  </consolidate>
+</LedgerImport>

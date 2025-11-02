@@ -1,0 +1,859 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dtx_datev_export_xml
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-19 13:20+0000\n"
+"PO-Revision-Date: 2025-05-19 13:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_kanban
+msgid ""
+")\n"
+"                                      \n"
+"                                    Dokument(en)"
+msgstr ""
+")\n"
+"                                      \n"
+"                                    Dokument(en)"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"<span class=\"o_form_label\">Customer Order Reference</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"o_form_label\">Kundenbestellreferenz</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Hier festgelegte Werte sind unternehmensspezifisch.\" aria-label=\"Hier festgelegte Werte sind unternehmensspezifisch.\" groups=\"base.group_multi_company\"/>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"<span class=\"o_form_label\">Default Period</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"o_form_label\">Standardzeitraum</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Hier festgelegte Werte sind unternehmensspezifisch.\" aria-label=\"Hier festgelegte Werte sind unternehmensspezifisch.\" groups=\"base.group_multi_company\"/>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"<span class=\"o_form_label\">Export State</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"o_form_label\">Exportstatus</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Hier festgelegte Werte sind unternehmensspezifisch.\" aria-label=\"Hier festgelegte Werte sind unternehmensspezifisch.\" groups=\"base.group_multi_company\"/>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"<span class=\"o_form_label\">Vendor Order Reference</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"o_form_label\">Lieferantenbestellreferenz</span>\n"
+"                        <span class=\"fa fa-lg fa-building-o\" title=\"Hier festgelegte Werte sind unternehmensspezifisch.\" aria-label=\"Hier festgelegte Werte sind unternehmensspezifisch.\" groups=\"base.group_multi_company\"/>"
+
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_move_form
+msgid "<span class=\"o_stat_text\">Datev XML Export</span>"
+msgstr "<span class=\"o_stat_text\">DATEV-XML-Export</span>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "<span class=\"o_stat_text\">Invoices</span>"
+msgstr "<span class=\"o_stat_text\">Rechnungen</span>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "<span class=\"o_stat_text\">Problems</span>"
+msgstr "<span class=\"o_stat_text\">Probleme</span>"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_kanban
+msgid ""
+"<strong> Exportiert:\n"
+"                                    </strong>\n"
+"                                    ("
+msgstr ""
+"<strong> Exportiert:\n"
+"                                    </strong>\n"
+"                                    ("
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_kanban
+msgid ""
+"<strong>Period:\n"
+"                                </strong>"
+msgstr ""
+"<strong>Zeitraum:\n"
+"                                </strong>"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_ids
+msgid "Activities"
+msgstr "Aktivitäten"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktivitätsausnahme-Dekoration"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_state
+msgid "Activity State"
+msgstr "Status der Aktivität"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Symbol des Aktivitätstyps"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__check_xsd
+msgid "Always Check DATEV XML Schema"
+msgstr "Validieren"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__attachment_id
+msgid "Attachment"
+msgstr "Anhang"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anhänge"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid "Close"
+msgstr "Schließen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurationseinstellungen"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid "Controls which reference is being used on customer invoices/refunds"
+msgstr ""
+"Beeinflusst, welche Referenz für Kundenrechnungen- und gutschriften genutzt "
+"wird"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid "Controls which reference is being used on vendor bills/refunds"
+msgstr ""
+"Beeinflusst, welche Referenz für Lieferantenrechnungen- und gutschriften "
+"genutzt wird"
+
+#. module: dtx_datev_export_xml
+#: model:ir.actions.server,name:dtx_datev_export_xml.cron_create_datev_export_ir_actions_server
+msgid "Create DATEV XML File"
+msgstr "DATEV XML: Erstelle Exportdatei"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid "Create Export File"
+msgstr "Exportdatei erstellen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_company__datev_customer_order_ref
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_config_settings__datev_customer_order_ref
+msgid "Customer Order Reference"
+msgstr "Bestellreferenz"
+
+#. module: dtx_datev_export_xml
+#: model:ir.ui.menu,name:dtx_datev_export_xml.dtx_datev_export_xml_root_menu
+msgid "DATEV Export"
+msgstr "DATEV-Export"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_datev_pdf_generator
+msgid "DATEV PDF Generator"
+msgstr "DATEV-PDF-Generator"
+
+#. module: dtx_datev_export_xml
+#: model:ir.actions.act_window,name:dtx_datev_export_xml.action_datev_export
+#: model:ir.actions.server,name:dtx_datev_export_xml.action_invoice_datev_export
+#: model:ir.model,name:dtx_datev_export_xml.model_datev_export_xml
+msgid "DATEV XML Export"
+msgstr "DATEV-XML-Export"
+
+#. module: dtx_datev_export_xml
+#: model:ir.actions.act_window,name:dtx_datev_export_xml.action_datev_export_wizard
+msgid "DATEV XML Export Wizard"
+msgstr "DATEV-XML-Export-Assistent"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_datev_xml_generator
+msgid "DATEV XML Generator"
+msgstr "DATEV-XML-Generator"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_datev_zip_generator
+msgid "DATEV ZIP Generator"
+msgstr "DATEV-ZIP-Generator"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "DATEV-XML-Export file is ready to download!"
+msgstr "DATEV-XML-Exportdatei ist zum Herunterladen bereit!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid ""
+"Data Insufficient!\n"
+"Please select Period or at least Start Date."
+msgstr ""
+"Unzureichende Daten!\n"
+"Bitte wählen Sie einen Zeitraum oder mindestens ein Startdatum aus."
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_zip_generator.py:0
+msgid ""
+"Data Insufficient!\n"
+"You have to fill the address for partner of invoice {}. The partner address has to have official company name!"
+msgstr ""
+"Unzureichende Daten!\n"
+"Sie müssen die Adresse für den Partner der Rechnung {} ausfüllen. Die Partneradresse muss den offiziellen Firmennamen enthalten!"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_company__datev_default_period
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_config_settings__datev_default_period
+msgid "Datev Default Period"
+msgstr "DATEV Standard Zeitperiode"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_bank_statement_line__datev_validation
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_move__datev_validation
+msgid "Datev Validation"
+msgstr "Datev Validieren"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/account_move.py:0
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_bank_statement_line__datev_export_ids
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_move__datev_export_ids
+msgid "Datev XML Exports"
+msgstr "DATEV-XML-Exporte"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_bank_statement_line__datev_exports_count
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_move__datev_exports_count
+msgid "Datev XML Exports Count"
+msgstr "Anzahl der DATEV-XML-Exporte"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_bank_statement_line__datev_exported
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_account_move__datev_exported
+msgid "Datev XML exported"
+msgstr "Datev XML Exported"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_default_period__day
+msgid "Day"
+msgstr "Tag"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid ""
+"Do you really want to create the DATEV file again? The creation of the file "
+"will be done in background and may take some time! When the file is created "
+"or an exception occurs, an activity will be applied to you."
+msgstr ""
+"Möchten Sie die DATEV-Datei wirklich erneut erstellen? Die Erstellung der "
+"Datei erfolgt im Hintergrund und kann einige Zeit dauern! Wenn die Datei "
+"erstellt wurde oder eine Ausnahme auftrat, wird eine Aktivität auf Sie "
+"angewendet."
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Do you really want to create the export?"
+msgstr "Möchten Sie den Export wirklich erstellen?"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Do you really want to restart the export?"
+msgstr "Möchten Sie den Export wirklich erneut starten?"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Do you really want to set the export to draft?"
+msgstr "Möchten Sie wirklich den Export auf Entwurf setzen?"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Do you really want to validate the export?"
+msgstr "Möchten Sie den Export wirklich validieren?"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__invoices_count
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_list
+msgid "Dokumenten"
+msgstr "Dokumenten"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__datev_export_xml__state__done
+msgid "Done"
+msgstr "Fertig"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Download File"
+msgstr "Downloaddatei"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__datev_export_xml__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_kanban
+msgid "Erstellt am"
+msgstr "Erstellt am"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__exception_info
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Exception Info"
+msgstr "Fehler"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "Exception while creating DATEV-XML-Export file!"
+msgstr "Fehler beim Erstellen der DATEV-XML-Exportdatei!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__datev_export_xml__state__failed
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__datev_filesize
+msgid "Filesize"
+msgstr "Dateigröße"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_follower_ids
+msgid "Followers"
+msgstr "Follower"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Follower (Partner)"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "FontAwesome-Icon, z. B. fa-tasks"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__date_start
+msgid "From Date"
+msgstr "Ab Datum"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__has_message
+msgid "Has Message"
+msgstr "Hat eine Nachricht"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__id
+msgid "ID"
+msgstr "ID"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_exception_icon
+msgid "Icon"
+msgstr "Icon"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icon, um eine Ausnahmeaktivität anzuzeigen."
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__message_has_error
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"If set, the invoices are marked as exported when finishing a Datev XML export.\n"
+"                            Only not yet exported invoices are suggested for next Datev XML export."
+msgstr ""
+"Wenn aktiviert, werden die Rechnungen nach Abschluss eines DATEV-XML-Exports als exportiert markiert.\n"
+"Nur noch nicht exportierte Rechnungen werden für den nächsten DATEV-XML-Export vorgeschlagen."
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "Included Invoices"
+msgstr "Enthaltene Rechnungen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__invoice_ids
+msgid "Invoices"
+msgstr "Rechnungen"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_account_invoice_filter
+msgid "Invoices that are not yet exported to Datev"
+msgstr "Rechnungen, die noch nicht nach Datev XML exportiert wurden"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_is_follower
+msgid "Is Follower"
+msgstr "Ist Follower"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "It's not allowed to set a running export to draft!"
+msgstr "Es ist nicht erlaubt, einen laufenden Export auf Entwurf zu setzen!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "It's not allowed to set an already running export to pending!"
+msgstr "Es ist nicht erlaubt, einen bereits laufenden Export auf 'Ausstehend' zu setzen!"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_account_move
+msgid "Journal Entry"
+msgstr "Journalbuchung"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model,name:dtx_datev_export_xml.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "Manually set to Done by {}!"
+msgstr "Manuell auf Erledigt gesetzt von {}!"
+
+#. module: dtx_datev_export_xml
+#: model:res.groups,name:dtx_datev_export_xml.group_datev_export_status
+msgid "Mark invoices as exported to Datev"
+msgstr "Rechnungen als 'nach Datev XML exportiert' markieren"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_has_error
+msgid "Message Delivery error"
+msgstr "Nachricht mit Zustellungsfehler"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_ids
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "Missing attachments for the following documents:\n"
+msgstr "Fehlende Anhänge für die folgenden Dokumente:\n"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_default_period__month
+msgid "Month"
+msgstr "Monat"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Frist für meine Aktivitäten"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Nächste Aktivitätsfrist"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_summary
+msgid "Next Activity Summary"
+msgstr "Zusammenfassung der nächsten Aktivität"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_type_id
+msgid "Next Activity Type"
+msgstr "Nächster Aktivitätstyp"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_zip_generator.py:0
+msgid "No Invoices Selected!"
+msgstr "Keine Rechnungen ausgewählt!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "No invoices/refunds for export!"
+msgstr "Keine Rechnungen/Gutschriften zum Export vorhanden!"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_has_error_counter
+msgid "Number of errors"
+msgstr "Anzahl der Fehler"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Anzahl der Nachrichten, die Maßnahmen erfordern"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Anzahl der Nachrichten mit Zustellfehler"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_customer_order_ref__partner
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_vendor_order_ref__partner
+msgid "Partner Reference"
+msgstr "Partnerreferenz"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_customer_order_ref__payment
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_vendor_order_ref__payment
+msgid "Payment Reference"
+msgstr "Bezahlreferenz"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__datev_export_xml__state__pending
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "Problematic Invoices"
+msgstr "Problematische Rechnungen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__problematic_invoices_count
+msgid "Problematic Invoices Count"
+msgstr "Anzahl problematischer Rechnungen"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid "Recreate Export File"
+msgstr "Exportdatei neu erstellen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__activity_user_id
+msgid "Responsible User"
+msgstr "Zuständiger Benutzer"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__datev_export_xml__state__running
+msgid "Running"
+msgstr "Laufend"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS-Zustellungsfehler"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Set to draft"
+msgstr "Auf Entwurf setzen"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__state
+msgid "Status"
+msgstr "Status"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status basierend auf Aktivitäten\n"
+"Überfällig: Fälligkeitsdatum bereits überschritten\n"
+"Heute: Aktivitätsdatum ist heute\n"
+"Geplant: anstehende Aktivitäten."
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_account_bank_statement_line__datev_export_ids
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_account_move__datev_export_ids
+msgid "The Datev XML Exports this invoice belongs to"
+msgstr "Die DATEV-XML-Exporte, zu denen diese Rechnung gehört"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid ""
+"The creation of the file can take some time! Do you really want to proceed!"
+msgstr ""
+"Die Erstellung der Datei kann einige Zeit in Anspruch nehmen! Möchten Sie "
+"wirklich fortfahren?"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_popup_form
+msgid ""
+"The creation of the file will be done in background and may take some time! "
+"When the file is created or an exception occurs, an activity will be applied"
+" to you."
+msgstr ""
+"Die Erstellung der Datei erfolgt im Hintergrund und kann einige Zeit dauern!"
+" Wenn die Datei erstellt wurde oder eine Ausnahme auftritt, wird eine "
+"Aktivität auf Sie angewendet."
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid ""
+"The numbers of invoices/refunds is limited to 4999 by DATEV! Please decrease"
+" the number of documents or deactivate Check XSD."
+msgstr ""
+"Die Anzahl der Rechnungen/Gutschriften ist von DATEV auf 4999 begrenzt! Bitte verringern Sie die Anzahl der Dokumente oder deaktivieren Sie die XSD-Prüfung."
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "The zip file can be downloaded here after creation!"
+msgstr ""
+"Die ZIP-Datei kann nach erfolgreicher Erstellung hier heruntergeladen "
+"werden!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_xml_generator.py:0
+msgid "There are multiple taxes in the following invoices: %(invoices)s"
+msgstr "Die folgenden Rechnungen enthalten mehrere Steuern: %(invoices)s"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Time Filters"
+msgstr "Filter Buchungszeitraum"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__date_stop
+msgid "To Date"
+msgstr "Datum bis"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_account_invoice_filter
+msgid "To be exported to Datev"
+msgstr "Nach Datev zu exportieren"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Typ der Ausnahmeaktivität im Datensatz."
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_res_company__datev_default_period
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_res_config_settings__datev_default_period
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.res_config_settings_view_form
+msgid ""
+"Used to get default values for start and stop date at DATEV XML Export!"
+msgstr ""
+"Wird verwendet, um Standardwerte für Start und Enddatum beim DATEV XML Export abzurufen!"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.view_datev_export_form
+msgid "Validate"
+msgstr "Validieren"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_company__datev_vendor_order_ref
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_res_config_settings__datev_vendor_order_ref
+msgid "Vendor Order Reference"
+msgstr "Lieferantenbestellreferenz"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__website_message_ids
+msgid "Website Messages"
+msgstr "Website-Nachrichten"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_datev_export_xml__website_message_ids
+msgid "Website communication history"
+msgstr "Website-Kommunikationsverlauf"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_default_period__week
+msgid "Week"
+msgstr "Woche"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_account_bank_statement_line__datev_exported
+#: model:ir.model.fields,help:dtx_datev_export_xml.field_account_move__datev_exported
+msgid ""
+"When finishing a datev XML exports the processed invoices are marked as "
+"exported to datev.\n"
+msgstr "Nach Abschluss eines DATEV-XML-Exports werden die verarbeiteten Rechnungen als nach DATEV exportiert markiert.\n"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_xml_generator.py:0
+msgid ""
+"Wrong Data in XML file!\n"
+"Try to solve the problem with '{}' according to message below:\n"
+"\n"
+msgstr ""
+"Falsche Daten in der XML-Datei!\n"
+"Versuchen Sie, das Problem mit '{}' gemäß der folgenden Meldung zu lösen:\n"
+"\n"
+
+#. module: dtx_datev_export_xml
+#: model:ir.ui.menu,name:dtx_datev_export_xml.menu_datev_xml_export
+msgid "XML Export"
+msgstr "XML-Export"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/res_company.py:0
+#: model:ir.model.fields.selection,name:dtx_datev_export_xml.selection__res_company__datev_default_period__year
+msgid "Year"
+msgstr "Jahr"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "You can only delete drafts!"
+msgstr "Sie können nur Entwürfe löschen!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid "You can't delete an export with linked invoices!"
+msgstr "Einen Export mit verknüpften Rechnungen können Sie nicht löschen!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid ""
+"You can't export draft invoices!\n"
+"Please set all invoices to posted!"
+msgstr ""
+"Sie können Entwurfsrechnungen nicht exportieren!\n"
+"Bitte setzen Sie alle Rechnungen auf den Status 'Gebucht'!"
+
+#. module: dtx_datev_export_xml
+#. odoo-python
+#: code:addons/dtx_datev_export_xml/models/datev_export.py:0
+msgid ""
+"You can't export invoices with the following types:\n"
+"%s\n"
+"Please select only invoices with the following types:\n"
+"%s"
+msgstr ""
+"Sie können Rechnungen mit den folgenden Typen nicht exportieren:\n"
+"%s\n"
+"Bitte wählen Sie nur Rechnungen mit den folgenden Typen aus:\n"
+"%s"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__datev_file
+msgid "ZIP file"
+msgstr "ZIP-Datei"
+
+#. module: dtx_datev_export_xml
+#: model:ir.model.fields,field_description:dtx_datev_export_xml.field_datev_export_xml__datev_filename
+msgid "ZIP filename"
+msgstr "ZIP-Dateiname"
+
+#. module: dtx_datev_export_xml
+#: model_terms:ir.ui.view,arch_db:dtx_datev_export_xml.datev_export_view_kanban
+msgid "von"
+msgstr "von"

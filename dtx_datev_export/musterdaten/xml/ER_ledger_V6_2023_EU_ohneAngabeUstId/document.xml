@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<archive xmlns="http://xml.datev.de/bedi/tps/document/v06.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.datev.de/bedi/tps/document/v06.0 Document_v060.xsd" version="6.0" 
+generatingSystem="DATEV-Musterdaten">
+  <header>
+    <date>2023-02-02T22:22:22</date>
+  </header>
+  <content>
+    <document>
+      <extension xsi:type="accountsPayableLedger" datafile="Rechnungsdaten_RE_R2023x101xOSS.xml">
+        <property value="2023-01" key="1" />
+        <property value="Eingangsrechnungen" key="3" />
+      </extension>
+    </document>
+  </content>
+</archive>

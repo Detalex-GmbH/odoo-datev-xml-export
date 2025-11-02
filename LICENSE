@@ -1,0 +1,246 @@
+LICENSE AGREEMENT FOR ODOO-DATEV-XML-EXPORT
+============================================
+
+NOTICE: This repository contains PROPRIETARY CODE owned by Detalex GmbH.
+For detailed licensing information and to comply with your specific needs,
+please read this license carefully.
+
+==========================================
+PROPRIETARY LICENSE - Detalex GmbH
+==========================================
+
+Copyright © 2025 Detalex GmbH
+All rights reserved.
+
+DISTRIBUTION AND USAGE RESTRICTIONS:
+
+This software and all associated documentation, code, and materials are the
+exclusive property of Detalex GmbH. Unauthorized use, distribution, modification,
+or reproduction of this software is strictly prohibited without prior written
+consent from Detalex GmbH.
+
+PERMITTED USE:
+
+This software may only be used by:
+1. Detalex GmbH employees and authorized contractors
+2. Licensed customers of Detalex GmbH with valid support contracts
+3. Parties with explicit written permission from Detalex GmbH management
+
+RESTRICTED ACTIVITIES:
+
+The following activities are STRICTLY PROHIBITED without written consent:
+- Distribution or redistribution of source code
+- Modification of the software for commercial purposes
+- Reverse engineering or decompilation
+- Creation of derivative works
+- Public disclosure of source code or functionality
+- Use in competitive products or services
+
+WARRANTY DISCLAIMER:
+
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL DETALEX GMBH BE LIABLE
+FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT,
+OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+LIABILITY LIMITATION:
+
+DETALEX GMBH SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+CONSEQUENTIAL, OR PUNITIVE DAMAGES, REGARDLESS OF THE CAUSE OF ACTION OR THEORY
+OF LIABILITY, EVEN IF DETALEX GMBH HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
+CONTACT & LICENSING:
+
+For licensing inquiries, custom usage rights, or permission requests, contact:
+
+    Detalex GmbH
+    Website: https://detalex.de
+    Email: info@detalex.de
+    Support: support@detalex.de
+
+==========================================
+OPEN SOURCE COMPONENTS
+==========================================
+
+While this software is primarily proprietary, it may contain or reference
+open-source components. The following open-source components are included:
+
+ODOO FRAMEWORK
+--------------
+License: LGPL-3.0
+Copyright: Odoo S.A.
+Website: https://www.odoo.com
+
+The Odoo framework upon which this addon is built is licensed under the
+GNU Lesser General Public License v3.0. See:
+https://github.com/odoo/odoo/blob/master/LICENSE
+
+COMPLIANCE NOTICE:
+
+This addon is designed for and depends on the Odoo framework, which is
+distributed under LGPL-3.0. The proprietary code in this addon extends
+and integrates with Odoo while maintaining its own proprietary licensing.
+
+Any modifications to Odoo framework code must comply with LGPL-3.0 requirements.
+
+See ODOO_LICENSE.txt for the complete Odoo LGPL-3.0 license text.
+
+==========================================
+THIRD-PARTY LIBRARIES & LICENSES
+==========================================
+
+This project may use third-party libraries. Each is subject to its own license:
+
+- lxml: BSD License
+- reportlab: BSD License (for PDF generation)
+- requests: Apache 2.0 License
+- cryptography: Apache 2.0 / BSD License
+
+Third-party components maintain their original licenses, and usage complies
+with their respective licensing terms.
+
+==========================================
+DATEV SPECIFICATIONS
+==========================================
+
+This software implements specifications from:
+
+DATEV eG
+Website: https://www.datev.de
+License: DATEV XML Schema and specifications are proprietary to DATEV eG
+
+Usage of DATEV XML export functionality is subject to:
+1. DATEV Terms of Service
+2. DATEV Software License Agreements
+3. Compliance with German accounting regulations (GoBD)
+
+This addon facilitates integration with DATEV systems but does not modify
+DATEV's proprietary specification files.
+
+==========================================
+INTELLECTUAL PROPERTY RIGHTS
+==========================================
+
+All intellectual property rights, including but not limited to:
+- Source code and algorithms
+- Documentation and comments
+- UI/UX design and layouts
+- Business logic and data structures
+- Logos, trademarks, and branding
+
+are the exclusive property of Detalex GmbH.
+
+Unauthorized use or reproduction of any of these elements is prohibited.
+
+==========================================
+COMPLIANCE & REGULATIONS
+==========================================
+
+This software is designed for use in Germany and complies with:
+
+- GoBD (Grundsätze zur Ordnungsmäßigkeit der Buchführung am Computer)
+- German Tax Code (Abgabenordnung - AO)
+- German Commercial Code (Handelsgesetzbuch - HGB)
+- GDPR (General Data Protection Regulation)
+
+Users are responsible for ensuring their use of this software complies
+with all applicable laws and regulations in their jurisdiction.
+
+==========================================
+TERM & TERMINATION
+==========================================
+
+1. This license is effective upon download/installation
+2. Detalex GmbH may terminate this license immediately upon:
+   - Violation of license terms
+   - Breach of usage restrictions
+   - Unauthorized distribution or modification
+3. Upon termination:
+   - License to use software ceases immediately
+   - User must cease all use of the software
+   - User must destroy all copies in their possession
+
+==========================================
+MODIFICATIONS & UPDATES
+==========================================
+
+Detalex GmbH reserves the right to:
+- Modify these license terms with 30 days written notice
+- Update software without changing license restrictions
+- Discontinue support or distribution at any time
+- Update licensing requirements for new versions
+
+==========================================
+DISPUTE RESOLUTION
+==========================================
+
+Governing Law:
+This license is governed by the laws of the Federal Republic of Germany
+(Deutschland), without regard to its conflict of laws principles.
+
+Jurisdiction:
+Any disputes shall be resolved in the courts of Germany, specifically
+in the jurisdiction where Detalex GmbH is registered.
+
+Language:
+The original language of this license is English. Any translations are
+provided for convenience only. In case of conflict, the English version
+shall prevail.
+
+==========================================
+ENTIRE AGREEMENT
+==========================================
+
+This license constitutes the entire agreement between you and Detalex GmbH
+regarding the use of this software and supersedes all previous communications,
+understandings, and agreements.
+
+If any provision of this license is found to be unenforceable, such provision
+shall be reformed to the minimum extent necessary, and the remaining provisions
+shall continue in full force and effect.
+
+==========================================
+VERSION HISTORY
+=========================================
+
+Version 1.0 - November 2, 2025
+- Initial license creation
+- Proprietary terms established
+- Open source components documented
+- DATEV compliance noted
+
+=========================================
+ACKNOWLEDGMENT
+=========================================
+
+By downloading, installing, or using this software, you acknowledge that:
+
+1. You have read and understood this license
+2. You accept all terms and conditions
+3. You understand the proprietary nature of this software
+4. You agree to comply with all usage restrictions
+5. You understand Detalex GmbH's intellectual property rights
+
+If you do not agree with these terms, DO NOT INSTALL OR USE this software.
+
+=========================================
+CONTACT FOR LICENSING & SUPPORT
+=========================================
+
+Detalex GmbH
+Website:    https://detalex.de
+Email:      info@detalex.de
+Support:    support@detalex.de
+
+Address:    Germany
+
+For questions about licensing, permissions, or usage rights,
+please contact the above addresses.
+
+=========================================
+
+Last Updated: November 2, 2025
+License Version: 1.0

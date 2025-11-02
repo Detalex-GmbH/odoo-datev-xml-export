@@ -1,0 +1,156 @@
+ODOO OPEN SOURCE LICENSE (LGPL-3.0)
+====================================
+
+This addon extends and integrates with the Odoo framework, which is distributed
+under the GNU Lesser General Public License v3.0.
+
+The Odoo framework components of this addon are subject to the LGPL-3.0 license.
+See the full Odoo license at: https://github.com/odoo/odoo/blob/master/LICENSE
+
+KEY POINTS OF LGPL-3.0 AS APPLIED TO ODOO:
+==========================================
+
+1. FREEDOM TO USE
+   - You can use Odoo for any purpose, including commercial purposes
+   - You can modify Odoo source code to meet your needs
+   - You can redistribute Odoo under the same LGPL-3.0 license
+
+2. FREEDOM TO STUDY
+   - You have access to the Odoo source code
+   - You can learn how Odoo works and modify it
+
+3. FREEDOM TO SHARE
+   - You can distribute copies of Odoo to others
+   - You must include the license and source code information
+
+4. DERIVATIVE WORKS
+   - Any modifications to Odoo must also be licensed under LGPL-3.0
+   - If you distribute modified versions, you must make source available
+
+TERMS OF LGPL-3.0:
+==================
+
+When this addon modifies or extends Odoo:
+
+a) Source Code Availability:
+   If you distribute this addon, you must provide access to the source code
+   of any modifications made to Odoo framework code.
+
+b) License Propagation:
+   Modified versions of Odoo-derived code must be licensed under LGPL-3.0
+   or a compatible license.
+
+c) User Rights:
+   Users have the right to modify the software for their own use.
+
+d) Linking Exception:
+   LGPL includes a linking exception that allows commercial applications
+   to use Odoo in combination with proprietary code.
+
+DISCLAIMER:
+===========
+
+THIS SOFTWARE IS PROVIDED ON AN "AS-IS" BASIS WITHOUT WARRANTIES OF ANY KIND,
+EXPRESS OR IMPLIED. NEITHER ODOO S.A. NOR DETALEX GMBH SHALL BE LIABLE FOR
+ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
+
+ODOO COMMUNITY CONTRIBUTIONS:
+=============================
+
+If you contribute improvements back to the Odoo community:
+- Contributions are typically licensed under LGPL-3.0
+- The Odoo project maintains contributor guidelines
+- See https://github.com/odoo/odoo/blob/master/CONTRIBUTING.md
+
+COMPLIANCE WITH LGPL-3.0:
+=========================
+
+This addon complies with LGPL-3.0 by:
+
+✓ Including this license notice
+✓ Providing clear attribution to Odoo S.A.
+✓ Documenting modifications to Odoo code
+✓ Making source code available under the same terms
+✓ Respecting user rights to modify and study code
+
+COMMERCIAL USE:
+===============
+
+The LGPL-3.0 linking exception specifically allows:
+- Commercial products using Odoo
+- Proprietary modules extending Odoo
+- Closed-source applications using Odoo libraries
+
+This addon is designed to extend Odoo while maintaining its own licensing terms.
+
+GPL/LGPL RESOURCES:
+===================
+
+For complete information about LGPL-3.0:
+- Official Text: https://www.gnu.org/licenses/lgpl-3.0.html
+- FAQ: https://www.gnu.org/licenses/gpl-faq.html
+- TLDR Legal Summary: https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3)
+
+ODOO FRAMEWORK INFORMATION:
+============================
+
+Odoo S.A.
+Website: https://www.odoo.com
+GitHub: https://github.com/odoo/odoo
+License: LGPL-3.0
+Copyright: © Odoo S.A.
+
+MODIFIED ODOO COMPONENTS:
+==========================
+
+This addon modifies/extends the following Odoo modules:
+
+1. account (Accounting module)
+   - Enhanced with DATEV XML export functionality
+   - Original: Licensed under LGPL-3.0
+   - Modifications: Subject to LGPL-3.0 terms
+
+2. base (Core Odoo module)
+   - Extended with DATEV configuration settings
+   - Original: Licensed under LGPL-3.0
+   - Modifications: Subject to LGPL-3.0 terms
+
+THIRD-PARTY LIBRARIES USED WITH ODOO:
+======================================
+
+Odoo depends on and this addon may use:
+
+- lxml (BSD License) - XML processing
+- PyYAML (MIT License) - Configuration
+- Werkzeug (BSD License) - Web framework components
+- Jinja2 (BSD License) - Templating
+- requests (Apache 2.0) - HTTP library
+
+Each maintains its original license and terms.
+
+COMPLIANCE NOTICE:
+==================
+
+⚠️  IMPORTANT:
+
+While this addon is distributed with proprietary licensing terms by Detalex GmbH,
+any modifications to Odoo framework code remain subject to LGPL-3.0.
+
+If you modify this addon or the Odoo components it uses:
+- You must comply with LGPL-3.0 for those modifications
+- You should share your improvements with the community
+- You must provide source code to users of modified versions
+
+The proprietary portions of this addon (DATEV-specific functionality) are
+subject to Detalex GmbH's proprietary license.
+The Odoo portions remain under LGPL-3.0.
+
+FOR MORE INFORMATION:
+====================
+
+- Odoo License: https://github.com/odoo/odoo/blob/master/LICENSE
+- Detalex Support: support@detalex.de
+- Odoo Community Forum: https://www.odoo.com/forum
+
+Version: 1.0
+Last Updated: November 2, 2025

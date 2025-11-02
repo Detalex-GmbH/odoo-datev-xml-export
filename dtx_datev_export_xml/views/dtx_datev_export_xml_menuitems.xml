@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <menuitem name="DATEV Export" id="dtx_datev_export_xml_root_menu" web_icon="dtx_datev_export_xml,static/description/icon.png"/>
+
+    <menuitem
+        name="XML Export"
+        parent="dtx_datev_export_xml_root_menu"
+        id="menu_datev_xml_export"
+        sequence="1"
+        action="action_datev_export"
+    />
+
+</odoo>

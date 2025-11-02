@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LedgerImport xmlns="http://xml.datev.de/bedi/tps/ledger/v060" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xml.datev.de/bedi/tps/ledger/v060 Belegverwaltung_online_ledger_import_v060.xsd" version="6.0" 
+generator_info="DATEV-Musterdaten" generating_system="DATEV-Musterdaten" xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug">
+  <consolidate consolidatedAmount="1190.00" consolidatedDate="2023-01-12" consolidatedInvoiceId="R2023x101xSkonto" consolidatedCurrencyCode="EUR" consolidatedDeliveryDate="2023-01-09">
+	<accountsPayableLedger>
+		<date>2023-01-12</date>
+		<amount>1190.00</amount>
+      	<discountAmount>35.70</discountAmount>
+		<tax>19.00</tax>
+		<information>Eingangsrechnung, Skonto direkt</information>
+		<currencyCode>EUR</currencyCode>
+		<invoiceId>R2023x101xSkonto</invoiceId>
+		<bookingText>Produkt B, Art-Nr. Art456</bookingText>
+		<partyId>K333</partyId>
+		<vatId>DE111456789</vatId>
+		<iban>DE38500700100087654321</iban>
+		<discountPercentage>3.00</discountPercentage>
+      	<discountPaymentDate>2023-01-17</discountPaymentDate>
+      	<discountAmount2>11.90</discountAmount2>
+		<discountPercentage2>1.00</discountPercentage2>
+      	<discountPaymentDate2>2023-01-22</discountPaymentDate2>
+		<dueDate>2023-01-26</dueDate>
+		<deliveryDate>2023-01-09</deliveryDate>
+		<supplierName>Musterlieferant</supplierName>
+		<supplierCity>Musterort</supplierCity>
+    </accountsPayableLedger>
+  </consolidate>
+</LedgerImport>
