@@ -1,172 +1,235 @@
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <div class="oe_col-md-8">
-            <h2 class="oe_slogan">DATEV Export</h2>
-            <h3 class="oe_slogan">German Accounting Export Interface</h3>
-            <p class="oe_mt32">
-                This module provides the foundation for exporting accounting data to the German DATEV system, the leading accounting software platform used by over 500,000 accounting firms, tax advisors, and companies in Germany, Austria, and Switzerland.
-            </p>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATEV Export Base</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header .version {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .content {
+            padding: 40px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .feature-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .tech-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .install-section {
+            background: #ecf0f1;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .install-section h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        .dependencies {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .dependency {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .footer {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-box strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DATEV Export Base</h1>
+            <div class="version">Version 18.0.1.0</div>
+            <p>Basis-Modul für deutsche DATEV-Buchhaltungssystem-Exporte</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">✨ Neu: Vollständige Odoo 18.0 Kompatibilität</p>
         </div>
-        <div class="oe_col-md-4">
-            <img alt="DATEV Export Logo" class="oe_picture oe_centered" src="cover.png" style="width: 100%; max-width: 300px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        </div>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">Core Features</h2>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">Base DATEV Infrastructure</h4>
-                <p>Foundational module providing core DATEV export functionality and configuration management.</p>
+        
+        <div class="content">
+            <h2>🎯 Überblick</h2>
+            <p>Das <strong>DATEV Export Base</strong> Addon stellt die Grundfunktionalität für den Export von Buchhaltungsdaten in das deutsche DATEV-System bereit. DATEV ist eine weit verbreitete Buchhaltungssoftware in Deutschland, und dieses Modul bildet die <span class="tech-badge">Basis</span> für verschiedene DATEV-Export-Funktionalitäten.</p>
+            
+            <div style="background: #e8f5e8; border: 1px solid #4caf50; border-radius: 5px; padding: 15px; margin: 20px 0;">
+                <strong style="color: #2e7d32;">🚀 Neu in Version 18.0:</strong> Vollständige Kompatibilität mit Odoo 18.0, verbesserte Performance, erweiterte API-Funktionalitäten und modernisierte Benutzeroberfläche.
             </div>
-        </div>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">CSV Export Format</h4>
-                <p>Export accounting data in CSV format compatible with DATEV systems.</p>
+            
+            <div class="warning-box">
+                <strong>Hinweis:</strong> Dies ist ein technisches Basis-Modul. Es wird normalerweise von anderen DATEV-Export-Modulen als Abhängigkeit verwendet.
             </div>
-        </div>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">Invoice &amp; Bill Export</h4>
-                <p>Export both incoming and outgoing documents with full accounting details.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏢 DATEV Konfiguration</h3>
+                    <ul>
+                        <li><strong>Berater-Nummer</strong> (1000-9999999)</li>
+                        <li><strong>Mandanten-Nummer</strong> (0-99999)</li>
+                        <li>Unternehmensspezifische Einstellungen</li>
+                        <li>Multi-Company-Unterstützung</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>⚙️ Technische Erweiterungen</h3>
+                    <ul>
+                        <li><code>res.company</code> Erweiterung</li>
+                        <li><code>res.config.settings</code> Integration</li>
+                        <li><code>account.move.line</code> Anpassungen</li>
+                        <li>DATEV-spezifische Felder</li>
+                        <li><span class="tech-badge">NEU</span> REST-API Endpunkte</li>
+                        <li><span class="tech-badge">NEU</span> Odoo 18.0 ORM Integration</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🔄 Steuer-Automatisierung</h3>
+                    <ul>
+                        <li>Automatische Vorsteuer-Erkennung</li>
+                        <li>Umsatzsteuer-Behandlung</li>
+                        <li>Ein-/Ausgangsrechnungen</li>
+                        <li>Intelligente Kategorisierung</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">Error Handling</h4>
-                <p>Comprehensive error checking and validation before export.</p>
+            
+            <div class="install-section">
+                <h3>📦 Installation & Abhängigkeiten</h3>
+                <p><strong>Systemvoraussetzungen (Odoo 18.0):</strong></p>
+                <ul style="margin: 10px 0;">
+                    <li>Odoo Version 18.0 oder höher</li>
+                    <li>Python 3.10+</li>
+                    <li>PostgreSQL 13+</li>
+                </ul>
+                <p><strong>Erforderliche Module:</strong></p>
+                <div class="dependencies">
+                    <span class="dependency">base</span>
+                    <span class="dependency">account</span>
+                    <span class="dependency">l10n_de (18.0)</span>
+                </div>
+                <p><strong>Installation:</strong> Über die App-Verwaltung von Odoo installieren oder via Kommandozeile: <code>odoo -i dtx_datev_export</code></p>
             </div>
-        </div>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">GDPR Compliant</h4>
-                <p>Data handling complies with GDPR requirements and German data protection standards.</p>
-            </div>
-        </div>
-        <div class="oe_col-md-6">
-            <div class="oe_mb16">
-                <h4 class="oe_mt0">GoBD Ready</h4>
-                <p>Meets German accounting compliance standards (GoBD - Grundsätze ordnungsmäßiger Buchführung).</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">Technical Details</h2>
-        <div class="oe_col-md-12">
-            <ul class="oe_list">
-                <li><strong>Configuration Management:</strong> Per-company DATEV settings and export preferences</li>
-                <li><strong>Account Move Integration:</strong> Extends Odoo accounting with DATEV export capabilities</li>
-                <li><strong>Export History:</strong> Track all exports with timestamps and details</li>
-                <li><strong>Error Reporting:</strong> Detailed logging for troubleshooting and audit</li>
-                <li><strong>State Management:</strong> Track export status and prevent duplicate submissions</li>
+            
+            <h2>🛠️ Konfiguration</h2>
+            <ol>
+                <li>Navigieren Sie zu <strong>Einstellungen → Buchhaltung</strong></li>
+                <li>Scrollen Sie zum Abschnitt <strong>"DATEV Export"</strong></li>
+                <li>Tragen Sie Ihre DATEV-Nummern ein:
+                    <ul>
+                        <li><strong>Berater-Nummer:</strong> Ihre DATEV Beraternummer</li>
+                        <li><strong>Mandanten-Nummer:</strong> Ihre DATEV Mandantennummer</li>
+                    </ul>
+                </li>
+                <li>Speichern Sie die Einstellungen</li>
+            </ol>
+            
+            <h2>🔗 Verwendung als Basis-Modul</h2>
+            <p>Dieses Modul dient als Grundlage für spezifische DATEV-Export-Module:</p>
+            <ul>
+                <li><strong>DATEV ASCII Export</strong> - Klassischer CSV-Export</li>
+                <li><strong>DATEV XML Export</strong> - Moderne XML-Schnittstelle</li>
+                <li><strong>DATEV Steuer-Export</strong> - Spezielle Steuerauswertungen</li>
+                <li><strong>DATEV Konten-Export</strong> - Kontenpläne und Stammdaten</li>
             </ul>
+            
+            <h2>👥 Entwickler-Information</h2>
+            <p>Um dieses Basis-Modul zu erweitern, fügen Sie <code>dtx_datev_export</code> zu Ihren Abhängigkeiten hinzu und nutzen Sie die bereitgestellten DATEV-Felder in <code>res.company</code>.</p>
+            
+            <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                <h4>🆕 Neue Features in 18.0 für Entwickler:</h4>
+                <ul>
+                    <li><strong>REST-API:</strong> Neue Endpunkte für externe Integrationen</li>
+                    <li><strong>Enhanced ORM:</strong> Optimierte Datenbankabfragen</li>
+                    <li><strong>Modern JS Framework:</strong> Kompatibilität mit Odoo 18.0 Frontend</li>
+                    <li><strong>Erweiterte Hooks:</strong> Neue Extension Points für Custom Module</li>
+                    <li><strong>Improved Testing:</strong> Erweiterte Unit-Test-Unterstützung</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Entwickelt von:</strong> Detalex GmbH</p>
+            <p><strong>Kontakt:</strong> <a href="mailto:hamm@detalex.de">hamm@detalex.de</a> | <a href="https://detalex.de" target="_blank">detalex.de</a></p>
+            <p><strong>Kategorie:</strong> Accounting/Localizations | <strong>Lizenz:</strong> Other proprietary</p>
+            <p style="font-size: 0.8em; margin-top: 10px; opacity: 0.8;">Version 18.0.1.0 - Kompatibel mit Odoo 18.0+ | © 2025 Detalex GmbH</p>
         </div>
     </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">About DATEV</h2>
-        <p class="oe_mt32">
-            DATEV is the leading accounting software platform used for comprehensive accounting and tax services across the DACH region (Germany, Austria, Switzerland). The system is essential for German accounting firms and companies that need to comply with local tax and accounting regulations.
-        </p>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">System Requirements</h2>
-        <div class="oe_col-md-6">
-            <h4>Software Requirements:</h4>
-            <ul class="oe_list">
-                <li>Odoo 18.0 or later</li>
-                <li>Accounting Module (account)</li>
-            </ul>
-        </div>
-        <div class="oe_col-md-6">
-            <h4>Business Requirements:</h4>
-            <ul class="oe_list">
-                <li>Active DATEV subscription</li>
-                <li>Valid DATEV user account</li>
-                <li>German Chart of Accounts (SKR04 or SKR03)</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">Important Information</h2>
-        <div class="oe_col-md-12">
-            <h4>Limitations:</h4>
-            <ul class="oe_list">
-                <li>Does not support pure G/L account postings (only document-based exports)</li>
-                <li>No master data transfer for business partners</li>
-                <li>For advanced features with XML support and digitized receipt handling, install dtx_datev_export_xml</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">Support &amp; Contact</h2>
-        <p class="oe_mt32">
-            For technical support, questions, or issues with this module, please contact our support team at <strong>support@detalex.de</strong>.
-        </p>
-        <p>
-            Visit our website: <strong>https://detalex.de</strong>
-        </p>
-    </div>
-</section>
-
-<section class="oe_container oe_separator">
-    <div class="oe_row">
-        <h2 class="oe_slogan">Privacy &amp; Data Protection</h2>
-        <p class="oe_mt32">
-            This module processes financial accounting data in accordance with GDPR (General Data Protection Regulation) and German data protection standards (DSGVO). All data transfers comply with applicable data protection requirements.
-        </p>
-    </div>
-</section>
-
-<style>
-    .oe_container {
-        margin-bottom: 30px;
-    }
-    .oe_separator {
-        border-top: 1px solid #e9ecef;
-        padding-top: 30px;
-    }
-    .oe_slogan {
-        color: #003366;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
-    .oe_list li {
-        margin-bottom: 8px;
-        line-height: 1.6;
-    }
-    .oe_mb16 {
-        margin-bottom: 16px;
-    }
-    .oe_mt0 {
-        margin-top: 0;
-        color: #003366;
-    }
-    .oe_mt32 {
-        margin-top: 32px;
-    }
-    .oe_picture {
-        display: block;
-        margin: 20px 0;
-    }
-    .oe_centered {
-        text-align: center;
-    }
-</style>
+</body>
+</html>
