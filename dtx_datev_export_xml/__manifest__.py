@@ -81,7 +81,7 @@
         'views/dtx_datev_export_xml_menuitems.xml',
     ],
     'images': [
-        'static/description/cover.png',
+        'static/description/cover.gif',
     ],
     'assets': {
         'web.assets_backend': [
