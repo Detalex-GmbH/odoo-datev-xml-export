@@ -1,6 +1,6 @@
 # DATEV Export Base
 
-**Version:** 18.0.1.0  
+**Version:** 18.0.1.2  
 **Kategorie:** Accounting/Localizations  
 **Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)  
 **Website:** https://detalex.de  
@@ -151,6 +151,18 @@ Für Support und weitere Informationen kontaktieren Sie:
 - **Website**: https://detalex.de
 
 ## Changelog
+
+### Version 18.0.1.2
+- **🎨 UI Verbesserungen**: Optimierte Hilfe-Texte und Formular-Darstellung
+- **📚 Erweiterte Inline-Dokumentation**: Bessere Erklärungen direkt in der Benutzeroberfläche
+- **✨ UX-Optimierung**: Verbesserte Benutzerführung bei BU-Code Konfiguration
+
+### Version 18.0.1.1
+- **📝 BU-Code Feld**: Neues `l10n_de_datev_code` Feld für DATEV Buchungsschlüssel auf Steuern
+- **📚 Umfassende Dokumentation**: Ausführliche Hilfe-Texte und dedizierte README_BU_CODE.md
+- **🔗 GitHub Link Korrektur**: Alle Dokumentationslinks auf öffentliches Repository aktualisiert
+- **🎨 UI Erweiterung**: Formular-View für BU-Code Pflege mit kontextbezogenen Hilfe-Texten
+- **🌍 Übersetzungen**: Deutsche Übersetzungen für alle neuen Felder und Texte
 
 ### Version 18.0.1.0
 - **Odoo 18.0 Kompatibilität**: Vollständige Anpassung an Odoo Version 18.0

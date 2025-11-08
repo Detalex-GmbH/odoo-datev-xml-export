@@ -113,7 +113,7 @@ Voraussetzungen wenn aktiviert:
 Bei falschen BU-Codes kann es zu Buchungsfehlern in DATEV kommen!
 
 Ausführliche Dokumentation:
-https://github.com/detalex/detalex_apps_18/blob/main/development/addons/detalex/dtx_datev_export/README_BU_CODE.md"""
+https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export/README_BU_CODE.md"""
     )
 
     # Document type filters

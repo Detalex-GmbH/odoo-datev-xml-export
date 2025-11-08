@@ -1,6 +1,6 @@
 # DATEV XML Export
 
-**Version:** 18.0.1.1
+**Version:** 18.0.1.3
 **Kategorie:** Accounting/Localizations
 **Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
 **Website:** https://detalex.de
@@ -600,6 +600,17 @@ Für Support und weitere Informationen kontaktieren Sie:
 - **Dokumentation**: Siehe `readme/` Ordner für detaillierte Anleitungen
 
 ## Changelog
+
+### Version 18.0.1.3
+- **🎨 UI Verbesserung**: Informativer Hilfe-Block im Export-Formular für `export_bu_code` Feld
+- **⚠️ Sichtbare Warnungen**: Alert-Box mit Warnung zur Steuerberater-Abstimmung direkt im Formular
+- **📚 Inline-Dokumentation**: Link zur ausführlichen BU-Code Dokumentation im Formular
+- **✨ Bessere UX**: Klare visuelle Trennung zwischen aktiviert/deaktiviert Szenarien
+
+### Version 18.0.1.2
+- **🔗 GitHub Link Korrektur**: Alle Dokumentationslinks auf öffentliches Repository aktualisiert
+- **📚 README Updates**: Versionsnummern in allen Dokumentationsdateien angepasst
+- **✨ Deployment Verbesserungen**: Vollständiger Deployment-Workflow zu GitHub, Brainergy Park und App Store
 
 ### Version 18.0.1.1
 - **🎯 BU-Code Export Steuerung**: Neues Boolean-Feld `export_bu_code` für optionale Kontrolle des BU-Code (Buchungsschlüssel) Exports

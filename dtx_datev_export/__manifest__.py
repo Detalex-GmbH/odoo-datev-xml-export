@@ -5,7 +5,7 @@
 # Part of Detalex. See LICENSE file for full copyright and licensing details.
 {
     'name': 'DATEV Export Base',
-    'version': '18.0.1.0',
+    'version': '18.0.1.2',
     'category': 'Hidden/Technical',
     'summary': 'Base module for German DATEV accounting system exports',
     'description': """
@@ -30,6 +30,8 @@
         - Provides base structure for DATEV export modules
 
         History:
+        - 18.0.1.2: UI improvements and help text enhancements
+        - 18.0.1.1: Added BU-Code (Buchungsschlüssel) field and documentation, fixed GitHub links
         - 18.0.1.0: Initial version with base DATEV functionality
 
     """,
