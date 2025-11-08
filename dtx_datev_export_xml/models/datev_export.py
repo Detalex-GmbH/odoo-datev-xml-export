@@ -95,6 +95,27 @@ class DatevExport(models.Model):
         default=True,
     )
 
+    export_bu_code = fields.Boolean(
+        string="DATEV Buchungscode (BU-Code) exportieren",
+        default=False,
+        help="""Aktivieren Sie diese Option, um BU-Codes (Buchungsschlüssel) im DATEV XML-Export zu übertragen.
+
+WICHTIG: Sprechen Sie mit Ihrer Steuerkanzlei, bevor Sie diese Option aktivieren!
+
+• Deaktiviert (empfohlen): DATEV ordnet Steuern automatisch zu
+• Aktiviert: DATEV nutzt die in Odoo hinterlegten BU-Codes für Steuerautomatik
+
+Voraussetzungen wenn aktiviert:
+- BU-Codes müssen in Steuern korrekt gepflegt sein
+- Kanzlei muss über die Verwendung informiert sein
+- Nur eine Steuer pro Rechnungszeile verwenden
+
+Bei falschen BU-Codes kann es zu Buchungsfehlern in DATEV kommen!
+
+Ausführliche Dokumentation:
+https://github.com/detalex/detalex_apps_18/blob/main/development/addons/detalex/dtx_datev_export/README_BU_CODE.md"""
+    )
+
     # Document type filters
     include_out_invoice = fields.Boolean(
         "Ausgehende Rechnungen",

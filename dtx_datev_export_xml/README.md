@@ -1,9 +1,9 @@
 # DATEV XML Export
 
-**Version:** 18.0.1.0  
-**Kategorie:** Accounting/Localizations  
-**Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)  
-**Website:** https://detalex.de  
+**Version:** 18.0.1.1
+**Kategorie:** Accounting/Localizations
+**Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
+**Website:** https://detalex.de
 **Lizenz:** Other proprietary
 
 ## Beschreibung
@@ -491,7 +491,7 @@ Um die ZIP-Archive aus Odoo zu übertragen, muss das DATEV Belegtransfer Program
 2. **Verzeichnisse definieren**: Definieren Sie nun die Verzeichnisse, die verwendet werden sollen, indem Sie zuerst den Mandanten auswählen und dann auf "Weiter" klicken. Sie können nun die beiden folgenden vorgeschlagenen Einträge verwenden und wie folgt konfigurieren:
 
    - **Rechnungseingang aktivieren**: "Als Verzeichnis anlegen". Aktivieren Sie auch "Als XML-Schnittstelle konfigurieren". Um die XML-Schnittstelle zu aktivieren, schieben Sie den Regler in der Spalte "Als XML-Schnittstelle konfigurieren" nach rechts. Dann ist er grün. Die Einstellung ist wichtig für die Übertragung der Dateien.
-   
+
    - **Rechnungsausgang aktivieren**: "Als Verzeichnis anlegen". Aktivieren Sie auch "Als XML-Schnittstelle konfigurieren". Um die XML-Schnittstelle zu aktivieren, schieben Sie den Regler in der Spalte "Als XML-Schnittstelle konfigurieren" nach rechts. Dann ist er ebenfalls grün.
 
 ### Dateien übertragen
@@ -600,6 +600,16 @@ Für Support und weitere Informationen kontaktieren Sie:
 - **Dokumentation**: Siehe `readme/` Ordner für detaillierte Anleitungen
 
 ## Changelog
+
+### Version 18.0.1.1
+- **🎯 BU-Code Export Steuerung**: Neues Boolean-Feld `export_bu_code` für optionale Kontrolle des BU-Code (Buchungsschlüssel) Exports
+- **📝 Umfassende Dokumentation**: Ausführliche Hilfe-Texte mit Warnhinweisen und GitHub-Dokumentationslink
+- **🔒 Sicherheit durch Opt-In**: BU-Code Export standardmäßig deaktiviert zur Vermeidung ungewollter automatischer Buchungen
+- **👨‍💼 Steuerberater-Integration**: Klare Empfehlung zur Abstimmung mit Steuerberater vor Aktivierung
+- **✅ Test-Abdeckung**: Zwei neue comprehensive Tests für beide Export-Szenarien (aktiviert/deaktiviert)
+- **🔧 Template-Logik**: Saubere bedingte XML-Ausgabe mit Template-Variablen
+- **📚 Prozess-Dokumentation**: Integration des Abstimmungsprozesses mit Steuerberater
+- **⚡ Vollständige Rückwärtskompatibilität**: Keine Breaking Changes für bestehende Installationen
 
 ### Version 18.0.1.0
 - **🚀 Odoo 18.0 Kompatibilität**: Vollständige Anpassung an Odoo Version 18.0

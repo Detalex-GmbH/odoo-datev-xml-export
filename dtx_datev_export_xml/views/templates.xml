@@ -40,7 +40,7 @@
             t-att-account_no="line.account_id.datev_code or False"
             t-att-cost_category_id="line.datev_cost_category_id() or False"
             t-att-booking_text="line.datev_booking_text() or False"
-            t-att-bu_code="line.tax_ids.l10n_de_datev_code or False"
+            t-att-bu_code="(datev_export.export_bu_code and line.tax_ids.l10n_de_datev_code) or False"
         />
     </template>
 
@@ -69,6 +69,7 @@
     </template>
 
     <template id="export_invoice">
+        <t t-set="datev_export" t-value="export" />
         <invoice
             xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug"
             xmlns="http://xml.datev.de/bedi/tps/invoice/v050"

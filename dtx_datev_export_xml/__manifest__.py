@@ -5,7 +5,7 @@
 # Part of Detalex. See LICENSE file for full copyright and licensing details.
 {
     'name': 'DATEV XML Export',
-    'version': '18.0.1.0',
+    'version': '18.0.1.1',
     'category': 'Accounting/Localizations',
     'summary': 'Advanced DATEV XML export for invoices and bills with digitized receipts',
     'description': """
@@ -41,6 +41,8 @@
         - Certain §13b UStG cases require manual handling
 
         History:
+        - 18.0.1.1: Added export_bu_code field for optional BU-Code (Buchungsschlüssel) export control
+                    with comprehensive documentation and steuerberater workflow integration
         - 18.0.1.0: Unified version with magic button validation features, comprehensive documentation
         - 18.0.0.13: Magic Button for DATEV validation errors with animation and group restrictions
         - 18.0.0.12: Refactoring of datev_cost_category, improved test coverage
@@ -59,7 +61,7 @@
 
     """,
     'author': 'Detalex GmbH, Dietmar Hamm (hamm@detalex.de)',
-    'website': 'https://detalex.de/odoo-datev',
+    'website': 'https://detalex.de',
     'license': 'Other proprietary',
     'depends': [
         'base',
@@ -79,9 +81,6 @@
         'views/res_config_settings_views.xml',
         'views/templates.xml',
         'views/dtx_datev_export_xml_menuitems.xml',
-    ],
-    'images': [
-        'static/description/cover.gif',
     ],
     'assets': {
         'web.assets_backend': [

@@ -34,7 +34,7 @@
 
     """,
     'author': 'Detalex GmbH, Dietmar Hamm (hamm@detalex.de)',
-    'website': 'https://detalex.de/odoo-datev',
+    'website': 'https://detalex.de',
     'license': 'Other proprietary',
     'depends': [
         'base',
@@ -42,10 +42,8 @@
         'l10n_de',
     ],
     'data': [
+        'views/account_tax_views.xml',
         'views/res_config_settings_views.xml',
-    ],
-    'images': [
-        'static/description/cover.gif',
     ],
     'demo': [],
     'installable': True,
