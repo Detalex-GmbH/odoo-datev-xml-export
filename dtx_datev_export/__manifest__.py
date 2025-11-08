@@ -47,6 +47,7 @@
         'l10n_de',
     ],
     'data': [
+        'views/account_tax_views.xml',
         'views/res_config_settings_views.xml',
     ],
     'demo': [],

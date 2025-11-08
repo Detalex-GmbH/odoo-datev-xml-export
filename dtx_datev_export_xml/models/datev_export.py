@@ -113,7 +113,7 @@ Voraussetzungen wenn aktiviert:
 Bei falschen BU-Codes kann es zu Buchungsfehlern in DATEV kommen!
 
 Ausführliche Dokumentation:
-https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export/README_BU_CODE.md"""
+https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/17.0/dtx_datev_export/README_BU_CODE.md"""
     )
 
     # Document type filters
@@ -283,6 +283,11 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
     def get_zip(self):
         self = self.with_context(bin_size=False)
 
+        if not self.invoice_ids:
+            raise UserError(
+                _("No invoices/refunds for export!")
+            )
+
         try:
             if self.attachment_id:
                 self.attachment_id.unlink()
@@ -293,6 +298,30 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
             # Reload self from database to get updated state from generate_zip() (may be "failed" if errors occurred)
             self = self.browse(self.id)
+
+            # 🚨 KRITISCH: Prüfe ob Validierungsfehler existieren (problematic_invoices)
+            # Auch wenn generate_zip() keine Exception geworfen hat, können einzelne Invoices
+            # datev_validation Fehler haben (z.B. fehlende BU-Codes, fehlerhafte Daten, etc.)
+            self._compute_problematic_invoices_count()
+            
+            if self.problematic_invoices_count > 0:
+                # Sammle alle Fehler von problematischen Invoices
+                problematic_msgs = []
+                for inv in self.invoice_ids.filtered("datev_validation"):
+                    problematic_msgs.append(f"{inv.name}: {inv.datev_validation}")
+                
+                error_summary = "\n".join(problematic_msgs)
+                
+                # Setze state auf failed und speichere Fehler
+                self.write({
+                    "state": "failed",
+                    "exception_info": error_summary if not self.exception_info else f"{self.exception_info}\n{error_summary}"
+                })
+                
+                _logger.warning(
+                    "[EXPORT] Export %s marked as FAILED due to %d problematic invoices:\n%s",
+                    self.id, self.problematic_invoices_count, error_summary
+                )
 
             # Only set state to "done" if it's not already "failed" from generate_zip()
             if self.state != "failed":

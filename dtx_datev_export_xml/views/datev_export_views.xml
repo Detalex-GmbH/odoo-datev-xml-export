@@ -109,7 +109,7 @@
                     />
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
+                        <div class="oe_button_box" name="button_box">
                         <button
                             class="oe_stat_button oe_read_only"
                             name="action_show_related_invoices_view"
@@ -159,29 +159,6 @@
                         <group string="General Settings">
                             <field name="check_xsd" readonly="state != 'draft'" />
                             <field name="export_bu_code" readonly="state != 'draft'" />
-                            <div class="alert alert-info" role="alert" style="margin-bottom: 4px;">
-                                <h4 class="alert-heading">
-                                    <i class="fa fa-info-circle"/> DATEV Buchungscode (BU-Code) exportieren?
-                                </h4>
-                                <p class="mb-0">
-                                    <strong>⚠️ Wichtig:</strong> Sprechen Sie mit Ihrer Steuerkanzlei, bevor Sie diese Option aktivieren!
-                                </p>
-                                <hr style="margin: 8px 0;"/>
-                                <ul style="margin-bottom: 0; padding-left: 20px;">
-                                    <li>
-                                        <strong>Deaktiviert (empfohlen):</strong> DATEV ordnet Steuern automatisch zu
-                                    </li>
-                                    <li>
-                                        <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes
-                                    </li>
-                                </ul>
-                                <p style="margin-top: 8px; margin-bottom: 0;">
-                                    <i class="fa fa-book"/>
-                                    <a href="https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export/README_BU_CODE.md" target="_blank">
-                                        Ausführliche Dokumentation
-                                    </a>
-                                </p>
-                            </div>
                         </group>
                         <group string="Download File" col="1">
                             <field name="datev_filename" invisible="1" />
@@ -216,6 +193,30 @@
                         </group>
                     </group>
 
+                    <div class="alert alert-info" role="alert" style="margin: 16px 0;">
+                        <h4 class="alert-heading">
+                            <i class="fa fa-info-circle"/> DATEV Buchungscode (BU-Code) exportieren?
+                        </h4>
+                        <p class="mb-0">
+                            <strong>⚠️ Wichtig:</strong> Sprechen Sie mit Ihrer Steuerkanzlei, bevor Sie diese Option aktivieren!
+                        </p>
+                        <hr style="margin: 8px 0;"/>
+                        <ul style="margin-bottom: 0; padding-left: 20px;">
+                            <li>
+                                <strong>Deaktiviert (empfohlen):</strong> DATEV ordnet Steuern automatisch zu
+                            </li>
+                            <li>
+                                <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes
+                            </li>
+                        </ul>
+                        <p style="margin-top: 8px; margin-bottom: 0;">
+                            <i class="fa fa-book"/>
+                            <a href="https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/17.0/dtx_datev_export/README_BU_CODE.md" target="_blank">
+                                Ausführliche Dokumentation
+                            </a>
+                        </p>
+                    </div>
+
                     <group
                         string="Exception Info"
                         name="exception_info"
@@ -230,11 +231,11 @@
                         />
                     </group>
                 </sheet>
-                <chatter>
+                <div class="oe_chatter">
                     <field name="message_follower_ids"/>
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
-                </chatter>
+                </div>
             </form>
         </field>
     </record>

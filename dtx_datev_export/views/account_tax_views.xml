@@ -3,7 +3,7 @@
     <record id="view_account_tax_form_datev" model="ir.ui.view">
         <field name="name">account.tax.form.datev</field>
         <field name="model">account.tax</field>
-        <field name="inherit_id" ref="l10n_de.view_account_tax_form_inherit"/>
+        <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
             <field name="l10n_de_datev_code" position="attributes">
                 <attribute name="string">DATEV-Buchungsschlüssel (BU-Code)</attribute>
@@ -20,7 +20,7 @@ Der BU-Code steuert in DATEV:
 - Automatische UStVA-Zuordnung
 
 Ausführliche Dokumentation:
-https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export/README_BU_CODE.md</attribute>
+https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/17.0/dtx_datev_export/README_BU_CODE.md</attribute>
             </field>
         </field>
     </record>
