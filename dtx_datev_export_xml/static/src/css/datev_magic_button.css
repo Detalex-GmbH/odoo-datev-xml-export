@@ -1,62 +1,31 @@
-/* Magic Button Styling für DATEV Export */
-.oe_stat_button.magic-error-button {
-    background: linear-gradient(45deg, #dc3545, #c82333) !important;
-    border: 2px solid #a71e2a !important;
-    color: white !important;
-    box-shadow: 0 4px 15px 0 rgba(220, 53, 69, 0.4) !important;
-    transition: all 0.3s ease !important;
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-.oe_stat_button.magic-error-button:hover {
-    background: linear-gradient(45deg, #c82333, #a71e2a) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px 0 rgba(220, 53, 69, 0.6) !important;
-}
-
-.oe_stat_button.magic-error-button:before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
-    animation: shine 2s infinite !important;
-}
-
-@keyframes shine {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
-    }
-}
-
-.magic-error-button .o_stat_value,
-.magic-error-button .o_stat_text {
+/* Magic Button Animation für DATEV Validierungsfehler */
+.datev_magic_button {
+    animation: pulseDatev 2s infinite;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e) !important;
+    border: 2px solid #ff4757 !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4) !important;
     color: white !important;
     font-weight: bold !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Validierungsfehler in der Liste hervorheben */
-.o_list_table .o_data_row.decoration-danger {
-    background-color: #f8d7da !important;
-    border-left: 4px solid #dc3545 !important;
+@keyframes pulseDatev {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
 }
 
-.o_list_table .o_data_row.decoration-danger:hover {
+.datev_magic_button:hover {
+    background: linear-gradient(45deg, #ff5252, #ff7979) !important;
+    transform: scale(1.02) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6) !important;
     background-color: #f5c6cb !important;
 }

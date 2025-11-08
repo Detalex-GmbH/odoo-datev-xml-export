@@ -1,6 +1,6 @@
 # DATEV Export Base
 
-**Version:** 18.0.1.2
+**Version:** 17.0.1.2
 **Kategorie:** Accounting/Localizations
 **Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
 **Website:** https://detalex.de
@@ -9,8 +9,6 @@
 ## Beschreibung
 
 Das **DATEV Export Base** Addon stellt die Grundfunktionalität für den Export von Buchhaltungsdaten in das deutsche DATEV-System bereit. DATEV ist eine weit verbreitete Buchhaltungssoftware in Deutschland, und dieses Modul bildet die Basis für verschiedene DATEV-Export-Funktionalitäten, die für die deutsche Lokalisierung erforderlich sind.
-
-**Neu in Version 18.0:** Vollständige Kompatibilität mit Odoo 18.0, verbesserte Performance und erweiterte Integrationsmöglichkeiten für moderne DATEV-Schnittstellen.
 
 ## Features
 
@@ -40,23 +38,12 @@ Das **DATEV Export Base** Addon stellt die Grundfunktionalität für den Export 
 
 ## Installation
 
-1. **Systemvoraussetzungen:**
-   - Odoo Version 18.0 oder höher
-   - Python 3.10+
-   - PostgreSQL 13+
+1. Stellen Sie sicher, dass die folgenden Abhängigkeiten installiert sind:
+   - `base`
+   - `account`
+   - `l10n_de` (Deutsche Lokalisierung)
 
-2. **Abhängigkeiten prüfen:**
-   Stellen Sie sicher, dass die folgenden Module installiert sind:
-   - `base` (Odoo Core)
-   - `account` (Buchhaltungsmodul)
-   - `l10n_de` (Deutsche Lokalisierung für Odoo 18.0)
-
-3. **Modul installieren:**
-   - Installieren Sie das Modul über die App-Verwaltung von Odoo
-   - Oder verwenden Sie die Kommandozeile: `odoo -i dtx_datev_export`
-
-4. **Datenbank-Migration:**
-   Bei Update von älteren Versionen wird automatisch eine Datenmigration durchgeführt
+2. Installieren Sie das Modul über die App-Verwaltung von Odoo
 
 ## Konfiguration
 
@@ -152,30 +139,7 @@ Für Support und weitere Informationen kontaktieren Sie:
 
 ## Changelog
 
-### Version 18.0.1.2
-- **🎨 UI Verbesserungen**: Optimierte Hilfe-Texte und Formular-Darstellung
-- **📚 Erweiterte Inline-Dokumentation**: Bessere Erklärungen direkt in der Benutzeroberfläche
-- **✨ UX-Optimierung**: Verbesserte Benutzerführung bei BU-Code Konfiguration
-
-### Version 18.0.1.1
-- **📝 BU-Code Feld**: Neues `l10n_de_datev_code` Feld für DATEV Buchungsschlüssel auf Steuern
-- **📚 Umfassende Dokumentation**: Ausführliche Hilfe-Texte und dedizierte README_BU_CODE.md
-- **🔗 GitHub Link Korrektur**: Alle Dokumentationslinks auf öffentliches Repository aktualisiert
-- **🎨 UI Erweiterung**: Formular-View für BU-Code Pflege mit kontextbezogenen Hilfe-Texten
-- **🌍 Übersetzungen**: Deutsche Übersetzungen für alle neuen Felder und Texte
-
-### Version 18.0.1.0
-- **Odoo 18.0 Kompatibilität**: Vollständige Anpassung an Odoo Version 18.0
-- **Verbesserte Performance**: Optimierte Datenbankabfragen und Berechnungen
-- **Enhanced Multi-Company**: Erweiterte Multi-Unternehmen-Funktionalität
-- **Modernisierte UI**: Aktualisierte Benutzeroberfläche entsprechend Odoo 18.0 Standards
-- **Sicherheits-Updates**: Aktuelle Sicherheitsstandards und Best Practices
-- **API-Erweiterungen**: Neue REST-API Endpunkte für externe Integrationen
-- **Erweiterte Logging**: Verbesserte Protokollierung und Fehlerbehandlung
-- **Deutsche Lokalisierung 18.0**: Anpassung an die neueste deutsche Lokalisierung
-- **DATEV-Standard Updates**: Unterstützung neuester DATEV-Schnittstellen-Standards
-
-### Version 17.0.1.0 (Legacy)
+### Version 17.0.1.0
 - Initiale Version mit DATEV-Basis-Funktionalität
 - DATEV Berater- und Mandantennummer-Konfiguration
 - Automatische Steuer-Erkennung für Rechnungen

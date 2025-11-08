@@ -5,7 +5,7 @@
 # Part of Detalex. See LICENSE file for full copyright and licensing details.
 {
     'name': 'DATEV Export Base',
-    'version': '18.0.1.2',
+    'version': '17.0.1.2',
     'category': 'Hidden/Technical',
     'summary': 'Base module for German DATEV accounting system exports',
     'description': """
@@ -30,9 +30,12 @@
         - Provides base structure for DATEV export modules
 
         History:
-        - 18.0.1.2: UI improvements and help text enhancements
-        - 18.0.1.1: Added BU-Code (Buchungsschlüssel) field and documentation, fixed GitHub links
-        - 18.0.1.0: Initial version with base DATEV functionality
+        - 17.0.1.2: UI improvements and help text enhancements
+        - 17.0.1.1: Added BU-Code (Buchungsschlüssel) field and documentation, fixed GitHub links
+        - 17.0.1.0: Initial Odoo 17 version
+
+        History:
+        - 17.0.1.0: Initial version with base DATEV functionality
 
     """,
     'author': 'Detalex GmbH, Dietmar Hamm (hamm@detalex.de)',
@@ -44,11 +47,7 @@
         'l10n_de',
     ],
     'data': [
-        'views/account_tax_views.xml',
         'views/res_config_settings_views.xml',
-    ],
-    'images': [
-        'static/description/cover.gif',
     ],
     'demo': [],
     'installable': True,

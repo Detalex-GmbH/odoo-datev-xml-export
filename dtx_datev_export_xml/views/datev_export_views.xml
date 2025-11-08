@@ -299,10 +299,10 @@
     </record>
 
     <record id="datev_export_view_list" model="ir.ui.view">
-        <field name="name">datev.export.xml.view.list</field>
+        <field name="name">datev.export.xml.view.tree</field>
         <field name="model">datev.export.xml</field>
         <field name="arch" type="xml">
-            <list
+            <tree
                 create="1"
                 default_order="id desc"
                 decoration-muted="state in ['draft', 'pending']"
@@ -316,7 +316,7 @@
                 <field name="datev_file" filename="datev_filename" widget="binary" />
                 <field name="invoices_count" string="Dokumenten" />
                 <field name="state" />
-            </list>
+            </tree>
         </field>
     </record>
 

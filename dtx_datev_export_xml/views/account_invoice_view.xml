@@ -37,19 +37,19 @@
     </record>
 
     <record id="view_move_datev_validation" model="ir.ui.view">
-        <field name="name">account.move.datev.list</field>
+        <field name="name">account.move.datev.tree</field>
         <field name="model">account.move</field>
         <field name="priority">800</field>
         <field name="groups_id" eval="[(4, ref('account.group_account_manager')), (4, ref('base.group_system'))]"/>
         <field name="arch" type="xml">
-            <list decoration-danger="datev_validation != False" create="false" edit="false">
+            <tree decoration-danger="datev_validation != False" create="false" edit="false">
                 <field name="name" decoration-bf="1"/>
                 <field name="partner_id" string="Kunde/Lieferant"/>
                 <field name="invoice_date" string="Rechnungsdatum"/>
                 <field name="amount_total" string="Gesamtbetrag"/>
                 <field name="state" string="Status"/>
-                <field name="datev_validation" string="🚨 Validierungsfehler" decoration-danger="datev_validation != False" groups="account.group_account_manager,base.group_system"/>
-            </list>
+                <field name="datev_validation" string="🚨 Validierungsfehler" optional="show"/>
+            </tree>
         </field>
     </record>
 
@@ -73,7 +73,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//list" position="inside">
+            <xpath expr="//tree" position="inside">
                 <field name="datev_exported" />
             </xpath>
         </field>
@@ -84,7 +84,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_invoice_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//list" position="inside">
+            <xpath expr="//tree" position="inside">
                 <field name="datev_exported" />
             </xpath>
         </field>
