@@ -47,6 +47,9 @@
         'views/account_tax_views.xml',
         'views/res_config_settings_views.xml',
     ],
+    'images': [
+        'static/description/cover.gif',
+    ],
     'demo': [],
     'installable': True,
     'auto_install': True,

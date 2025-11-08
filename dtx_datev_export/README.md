@@ -1,9 +1,9 @@
 # DATEV Export Base
 
-**Version:** 18.0.1.2  
-**Kategorie:** Accounting/Localizations  
-**Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)  
-**Website:** https://detalex.de  
+**Version:** 18.0.1.2
+**Kategorie:** Accounting/Localizations
+**Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
+**Website:** https://detalex.de
 **Lizenz:** Other proprietary
 
 ## Beschreibung
@@ -42,7 +42,7 @@ Das **DATEV Export Base** Addon stellt die Grundfunktionalität für den Export 
 
 1. **Systemvoraussetzungen:**
    - Odoo Version 18.0 oder höher
-   - Python 3.10+ 
+   - Python 3.10+
    - PostgreSQL 13+
 
 2. **Abhängigkeiten prüfen:**
@@ -83,16 +83,16 @@ Das Modul unterstützt Multi-Company-Umgebungen:
 ```python
 class ResCompany(models.Model):
     _inherit = "res.company"
-    
+
     l10n_de_datev_consultant_number = fields.Char(company_dependent=True)
     l10n_de_datev_client_number = fields.Char(company_dependent=True)
 ```
 
-#### AccountMoveLine  
+#### AccountMoveLine
 ```python
 class AccountAccount(models.Model):
     _inherit = "account.move.line"
-    
+
     datev_vorsteuer_automatic = fields.Boolean(
         compute="_compute_datev_vorsteuer_automatic"
     )
@@ -109,7 +109,7 @@ class AccountAccount(models.Model):
 ## Abhängigkeiten
 
 - **base**: Odoo Basis-Modul
-- **account**: Buchhaltungsmodul  
+- **account**: Buchhaltungsmodul
 - **l10n_de**: Deutsche Lokalisierung
 
 ## Verwendung
@@ -117,7 +117,7 @@ class AccountAccount(models.Model):
 Dieses Modul stellt eine Basis für andere DATEV-Export-Module bereit. Es kann als Abhängigkeit für spezifische DATEV-Export-Funktionalitäten verwendet werden:
 
 - DATEV ASCII Export
-- DATEV XML Export  
+- DATEV XML Export
 - DATEV Steuer-Export
 - DATEV Konten-Export
 

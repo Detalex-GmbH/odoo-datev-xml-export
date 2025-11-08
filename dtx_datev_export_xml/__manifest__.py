@@ -84,6 +84,9 @@
         'views/templates.xml',
         'views/dtx_datev_export_xml_menuitems.xml',
     ],
+    'images': [
+        'static/description/cover.gif',
+    ],
     'assets': {
         'web.assets_backend': [
             'dtx_datev_export_xml/static/src/css/datev_magic_button.css',
