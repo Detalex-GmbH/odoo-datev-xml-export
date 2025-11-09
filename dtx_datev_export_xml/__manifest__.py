@@ -65,7 +65,7 @@
 
     """,
     'author': 'Detalex GmbH, Dietmar Hamm (hamm@detalex.de)',
-    'website': 'https://detalex.de',
+    'website': 'https://detalex.de/odoo-datev',
     'license': 'Other proprietary',
     'depends': [
         'base',
