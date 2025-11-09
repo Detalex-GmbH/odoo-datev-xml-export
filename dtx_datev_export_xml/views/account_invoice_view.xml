@@ -40,7 +40,6 @@
         <field name="name">account.move.datev.list</field>
         <field name="model">account.move</field>
         <field name="priority">800</field>
-        <field name="groups_id" eval="[(4, ref('account.group_account_manager')), (4, ref('base.group_system'))]"/>
         <field name="arch" type="xml">
             <list decoration-danger="datev_validation != False" create="false" edit="false">
                 <field name="name" decoration-bf="1"/>

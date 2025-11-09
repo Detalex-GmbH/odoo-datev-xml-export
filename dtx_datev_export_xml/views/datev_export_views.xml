@@ -104,7 +104,7 @@
                     <field
                         name="state"
                         widget="statusbar"
-                        statusbar_visible="pending,running,done"
+                        statusbar_visible="pending,running,done,failed"
                         statusbar_colors="{'done':'blue', 'failed':'red'}"
                     />
                 </header>
@@ -156,29 +156,22 @@
                         </group>
                     </group>
                     <group>
-                        <group string="General Settings">
+                        <group string="General Settings" colspan="2">
                             <field name="check_xsd" readonly="state != 'draft'" />
                             <field name="export_bu_code" readonly="state != 'draft'" />
-                            <div class="alert alert-info" role="alert" style="margin-bottom: 4px;">
-                                <h4 class="alert-heading">
+                            <div class="alert alert-info" role="alert" style="margin: 8px 0; padding: 8px 12px;" colspan="2">
+                                <h5 style="margin: 0 0 4px 0;">
                                     <i class="fa fa-info-circle"/> DATEV Buchungscode (BU-Code) exportieren?
-                                </h4>
-                                <p class="mb-0">
+                                </h5>
+                                <p style="margin: 0 0 4px 0; font-size: 13px;">
                                     <strong>⚠️ Wichtig:</strong> Sprechen Sie mit Ihrer Steuerkanzlei, bevor Sie diese Option aktivieren!
                                 </p>
-                                <hr style="margin: 8px 0;"/>
-                                <ul style="margin-bottom: 0; padding-left: 20px;">
-                                    <li>
-                                        <strong>Deaktiviert (empfohlen):</strong> DATEV ordnet Steuern automatisch zu
-                                    </li>
-                                    <li>
-                                        <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes
-                                    </li>
-                                </ul>
-                                <p style="margin-top: 8px; margin-bottom: 0;">
+                                <p style="margin: 0; font-size: 12px;">
+                                    <strong>Deaktiviert:</strong> DATEV ordnet Steuern automatisch zu • 
+                                    <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes • 
                                     <i class="fa fa-book"/>
-                                    <a href="https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export/README_BU_CODE.md" target="_blank">
-                                        Ausführliche Dokumentation
+                                    <a href="https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/19.0/dtx_datev_export/README_BU_CODE.md" target="_blank">
+                                        Dokumentation
                                     </a>
                                 </p>
                             </div>
@@ -344,7 +337,11 @@
         <field name="state">code</field>
         <field name="code">action = model.export_zip_invoice()</field>
         <field name="binding_model_id" ref="account.model_account_move" />
-        <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]" />
+    </record>
+
+    <!-- Assign groups to the server action -->
+    <record id="action_invoice_datev_export" model="ir.actions.server">
+        <field name="group_ids" eval="[(6, 0, [ref('account.group_account_manager')])]"/>
     </record>
 
 </odoo>

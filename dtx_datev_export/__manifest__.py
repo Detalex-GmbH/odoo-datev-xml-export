@@ -5,7 +5,7 @@
 # Part of Detalex. See LICENSE file for full copyright and licensing details.
 {
     'name': 'DATEV Export Base',
-    'version': '18.0.1.2',
+    'version': '19.0.1.2',
     'category': 'Hidden/Technical',
     'summary': 'Base module for German DATEV accounting system exports',
     'description': """
@@ -36,7 +36,7 @@
 
     """,
     'author': 'Detalex GmbH, Dietmar Hamm (hamm@detalex.de)',
-    'website': 'https://detalex.de',
+    'website': 'https://detalex.de/odoo-datev',
     'license': 'Other proprietary',
     'depends': [
         'base',

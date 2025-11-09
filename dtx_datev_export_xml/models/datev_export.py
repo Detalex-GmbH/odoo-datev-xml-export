@@ -224,8 +224,13 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
     @api.depends("invoice_ids")
     def _compute_problematic_invoices_count(self):
         for r in self:
-            # Nur echte Probleme zählen, kein Debug-Modus
-            r.problematic_invoices_count = len(r.invoice_ids.filtered("datev_validation"))
+            # Nur echte Probleme zählen (non-empty strings)
+            # datev_validation kann False, None oder "" sein = kein Problem
+            # Nur wenn es einen nicht-leeren String gibt = Problem
+            problematic = r.invoice_ids.filtered(
+                lambda inv: inv.datev_validation and isinstance(inv.datev_validation, str) and inv.datev_validation.strip()
+            )
+            r.problematic_invoices_count = len(problematic)
 
     @api.depends("invoice_ids")
     def _compute_invoices_count(self):
@@ -488,11 +493,25 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
                 continue
 
             try:
-                generator.generate_xml_invoice(invoice, self)
+                generator.generate_xml_invoice(invoice, self, check_xsd=self.check_xsd)
             except UserError:
                 continue
 
         self._compute_problematic_invoices_count()
+        
+        # If validation errors exist after validation, set state to failed
+        # This can override "done" state if ZIP was created but validation found errors
+        if self.problematic_invoices_count > 0:
+            error_msg = _("Export has {} invoice(s) with validation errors").format(
+                self.problematic_invoices_count
+            )
+            self.write({
+                "state": "failed",
+                "exception_info": error_msg,
+            })
+            # Remove ZIP attachment if it was created
+            if self.attachment_id:
+                self.attachment_id.unlink()
 
     def action_done(self):
         self.filtered(lambda r: r.state in ["running", "failed"]).write(

@@ -48,13 +48,14 @@
         <t t-set="prices" t-value="line.datev_price_information()" />
 
         <invoice_item_list
-            t-call="dtx_datev_export_xml.export_invoice_line_item"
             t-att-product_id="line.product_id.default_code if line.product_id else False"
             t-att-description_short="line.datev_name()[:40]"
             t-att-net_product_price="doc.datev_format_total(prices['total_excluded'], 3) if prices.get('total_excluded') else False"
             t-att-order_unit="line.product_uom_id.name if line.product_id else False"
             t-att-quantity="'%.02f' % line.quantity"
-        />
+        >
+            <t t-call="dtx_datev_export_xml.export_invoice_line_item" />
+        </invoice_item_list>
     </template>
 
     <template id="export_invoice_info">
@@ -82,24 +83,29 @@
         >
             <t t-call="dtx_datev_export_xml.export_invoice_info" />
 
-            <invoice_party t-call="dtx_datev_export_xml.export_party">
-                <t
-                    t-set="partner"
-                    t-value="doc.partner_id"
-                    t-if="doc.move_type in ['out_invoice', 'out_refund']"
-                />
-                <t t-set="partner" t-value="doc.company_id.partner_id" t-else="" />
-                <t t-set="account" t-value="partner.property_account_receivable_id" />
+            <!-- Set variables for invoice_party -->
+            <t
+                t-set="partner"
+                t-value="doc.partner_id"
+                t-if="doc.move_type in ['out_invoice', 'out_refund']"
+            />
+            <t t-set="partner" t-value="doc.company_id.partner_id" t-else="" />
+            <t t-set="account" t-value="partner.property_account_receivable_id" />
+            <invoice_party>
+                <t t-call="dtx_datev_export_xml.export_party" />
             </invoice_party>
 
-            <supplier_party t-call="dtx_datev_export_xml.export_party">
-                <t t-if="doc.move_type in ['out_invoice', 'out_refund']">
-                    <t t-set="partner" t-value="doc.company_id.partner_id" />
-                </t>
-                <t t-else="">
-                    <t t-set="partner" t-value="doc.partner_id" />
-                    <t t-set="account" t-value="partner.property_account_payable_id" />
-                </t>
+            <!-- Set variables for supplier_party -->
+            <t t-if="doc.move_type in ['out_invoice', 'out_refund']">
+                <t t-set="partner" t-value="doc.company_id.partner_id" />
+                <t t-set="account" t-value="partner.property_account_receivable_id" />
+            </t>
+            <t t-else="">
+                <t t-set="partner" t-value="doc.partner_id" />
+                <t t-set="account" t-value="partner.property_account_payable_id" />
+            </t>
+            <supplier_party>
+                <t t-call="dtx_datev_export_xml.export_party" />
             </supplier_party>
 
             <payment_conditions
