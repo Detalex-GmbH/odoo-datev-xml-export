@@ -75,6 +75,9 @@
         'l10n_de',
         'contacts',
     ],
+    'images': [
+        'static/description/cover.gif',
+    ],    
     'data': [
         'data/ir_cron_data.xml',
         'security/groups.xml',
