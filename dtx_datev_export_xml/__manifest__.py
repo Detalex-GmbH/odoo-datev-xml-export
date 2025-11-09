@@ -5,7 +5,7 @@
 # Part of Detalex. See LICENSE file for full copyright and licensing details.
 {
     'name': 'DATEV XML Export',
-    'version': '19.0.1.3',
+    'version': '19.0.1.4',
     'category': 'Accounting/Localizations',
     'summary': 'Advanced DATEV XML export for invoices and bills with digitized receipts',
     'description': """

@@ -1,6 +1,6 @@
 # DATEV XML Export
 
-**Version:** 19.0.1.3
+**Version:** 19.0.1.4
 **Kategorie:** Accounting/Localizations
 **Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
 **Website:** https://detalex.de
@@ -600,6 +600,12 @@ Für Support und weitere Informationen kontaktieren Sie:
 - **Dokumentation**: Siehe `readme/` Ordner für detaillierte Anleitungen
 
 ## Changelog
+
+### Version 19.0.1.4
+- **🐛 Bug Fix**: `action_validate()` respektiert jetzt `check_xsd` Parameter korrekt
+- **✅ Test-Erweiterung**: Neue Tests für fehlerhafte Exporte ohne ZIP-Dateien
+- **🧹 Code Quality**: PyLint-Fehler behoben (trailing whitespace, f-string logging)
+- **📦 Deployment**: Automatisches Deployment zu GitHub Branch 19.0
 
 ### Version 19.0.1.3
 - **🎨 UI Verbesserung**: Informativer Hilfe-Block im Export-Formular für `export_bu_code` Feld

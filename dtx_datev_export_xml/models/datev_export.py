@@ -498,7 +498,7 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
                 continue
 
         self._compute_problematic_invoices_count()
-        
+
         # If validation errors exist after validation, set state to failed
         # This can override "done" state if ZIP was created but validation found errors
         if self.problematic_invoices_count > 0:
