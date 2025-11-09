@@ -41,7 +41,7 @@
         - Certain §13b UStG cases require manual handling
 
         History:
-        - 18.0.1.3: Added UI help block for export_bu_code field with warnings and documentation link
+        - 19.0.1.3: Added UI help block for export_bu_code field with warnings and documentation link
         - 18.0.1.2: Fixed GitHub documentation links to point to public repository
         - 18.0.1.1: Added export_bu_code field for optional BU-Code (Buchungsschlüssel) export control
                     with comprehensive documentation and steuerberater workflow integration

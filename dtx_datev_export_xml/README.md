@@ -1,6 +1,6 @@
 # DATEV XML Export
 
-**Version:** 18.0.1.3
+**Version:** 19.0.1.3
 **Kategorie:** Accounting/Localizations
 **Autor:** Detalex GmbH, Dietmar Hamm (hamm@detalex.de)
 **Website:** https://detalex.de
@@ -601,7 +601,7 @@ Für Support und weitere Informationen kontaktieren Sie:
 
 ## Changelog
 
-### Version 18.0.1.3
+### Version 19.0.1.3
 - **🎨 UI Verbesserung**: Informativer Hilfe-Block im Export-Formular für `export_bu_code` Feld
 - **⚠️ Sichtbare Warnungen**: Alert-Box mit Warnung zur Steuerberater-Abstimmung direkt im Formular
 - **📚 Inline-Dokumentation**: Link zur ausführlichen BU-Code Dokumentation im Formular
