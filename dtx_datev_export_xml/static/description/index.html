@@ -345,12 +345,12 @@
         <!-- Header -->
         <div class="header">
             <h1>DATEV XML Export</h1>
-            <div class="version-badge">Version 19.0.1.3</div>
+            <div class="version-badge">Version 19.0.1.4</div>
             <div class="company-info">
                 <strong>Detalex GmbH</strong> | Dietmar Hamm (hamm@detalex.de)<br>
-                <a href="https://detalex.de" target="_blank" style="color: #667eea; text-decoration: none;">🌐 detalex.de</a>
+                <a href="https://detalex.de/odoo-datev" target="_blank" style="color: #667eea; text-decoration: none;">🌐 detalex.de</a>
                 <div style="margin-top: 10px; font-size: 0.9em; color: #3498db;">
-                    ✨ Neu: Vollständige Odoo 18.0 Kompatibilität
+                    ✨ Neu: Vollständige Odoo 19.0 Kompatibilität
                 </div>
             </div>
         </div>
@@ -360,7 +360,7 @@
             <div class="description">
                 Das <strong>DATEV XML Export</strong> Addon stellt erweiterte Funktionalitäten für den Export von Rechnungen und Belegen in das deutsche DATEV-System über die moderne XML-Schnittstelle mit Unterstützung für digitalisierte Belege bereit. Diese Lösung ermöglicht den strukturierten Transfer von Buchhaltungsdaten und ersetzt schrittweise die ASCII-basierten Exporte.
                 <div style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #e8f5e8, #f0f8ff); border-radius: 10px; border-left: 4px solid #28a745;">
-                    <strong style="color: #2e7d32;">🚀 Neu in Version 18.0:</strong> Vollständige Kompatibilität mit Odoo 18.0, verbesserte Performance, erweiterte Magic Button Funktionalität und modernisierte Benutzeroberfläche.
+                    <strong style="color: #2e7d32;">🚀 Neu in Version 19.0:</strong> Vollständige Kompatibilität mit Odoo 19.0, verbesserte Performance, erweiterte Magic Button Funktionalität und modernisierte Benutzeroberfläche.
                 </div>
             </div>
 
@@ -736,20 +736,24 @@
 
         <!-- Changelog -->
         <div class="changelog">
-            <h2>📋 Changelog - Version 19.0.1.3</h2>
+            <h2>📋 Changelog - Version 19.0.1.4</h2>
             <ul>
+                <li>🐛 Bug Fix: action_validate() respektiert jetzt check_xsd Parameter korrekt</li>
+                <li>✅ Test-Erweiterung: Neue Tests für fehlerhafte Exporte ohne ZIP-Dateien</li>
+                <li>🧹 Code Quality: PyLint-Fehler behoben (trailing whitespace, f-string logging)</li>
+                <li>📦 Deployment: Automatisches Deployment zu GitHub Branch 19.0</li>
                 <li>🎨 UI Verbesserung: Informativer Hilfe-Block im Export-Formular für BU-Code Export Steuerung</li>
                 <li>⚠️ Sichtbare Warnungen: Alert-Box mit Warnung zur Steuerberater-Abstimmung direkt im Formular</li>
                 <li>📚 Inline-Dokumentation: Link zur ausführlichen BU-Code Dokumentation im Formular</li>
-                <li>🚀 Odoo 18.0 Kompatibilität: Vollständige Anpassung an Odoo Version 18.0</li>
+                <li>🚀 Odoo 19.0 Kompatibilität: Vollständige Anpassung an Odoo Version 19.0</li>
                 <li>⚡ Performance-Optimierungen: Verbesserte Datenbankabfragen und Exportgeschwindigkeit</li>
-                <li>🎨 Modernisierte UI: Aktualisierte Benutzeroberfläche entsprechend Odoo 18.0 Standards</li>
+                <li>🎨 Modernisierte UI: Aktualisierte Benutzeroberfläche entsprechend Odoo 19.0 Standards</li>
                 <li>🔧 Enhanced Magic Button: Erweiterte Validierungsfehler-Anzeige mit verbesserter Animation</li>
                 <li>🛡️ Sicherheits-Updates: Aktuelle Sicherheitsstandards und Best Practices</li>
                 <li>📊 API-Erweiterungen: Neue REST-API Endpunkte für externe Integrationen</li>
                 <li>📝 Erweiterte Logging: Verbesserte Protokollierung und Fehlerbehandlung</li>
-                <li>🇩🇪 Deutsche Lokalisierung 18.0: Anpassung an die neueste deutsche Lokalisierung</li>
-                <li>🔄 Automatische Migration: Nahtloser Upgrade-Pfad von 17.0 zu 18.0</li>
+                <li>🇩🇪 Deutsche Lokalisierung 19.0: Anpassung an die neueste deutsche Lokalisierung</li>
+                <li>🔄 Automatische Migration: Nahtloser Upgrade-Pfad von 18.0 zu 19.0</li>
                 <li>📱 Mobile Optimierung: Verbesserte Darstellung auf mobilen Geräten</li>
                 <li>🎯 Vereinheitlichte Versionierung: Konsistente Versionierung mit anderen Detalex-Modulen</li>
                 <li>🚨 Magic Button für DATEV-Validierungsfehler: Animierter Button mit direkter Fehler-Navigation</li>

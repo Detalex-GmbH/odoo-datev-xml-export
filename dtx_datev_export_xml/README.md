@@ -10,7 +10,7 @@
 
 Das **DATEV XML Export** Addon stellt erweiterte Funktionalitäten für den Export von Rechnungen und Belegen in das deutsche DATEV-System über die moderne XML-Schnittstelle mit Unterstützung für digitalisierte Belege bereit. Diese Lösung ermöglicht den strukturierten Transfer von Buchhaltungsdaten und ersetzt schrittweise die ASCII-basierten Exporte.
 
-**🚀 Neu in Version 18.0:** Vollständige Kompatibilität mit Odoo 18.0, verbesserte Performance, erweiterte Magic Button Funktionalität mit verbesserter Validierung und modernisierte Benutzeroberfläche entsprechend den neuesten Odoo-Standards.
+**🚀 Neu in Version 19.0:** Vollständige Kompatibilität mit Odoo 18.0, verbesserte Performance, erweiterte Magic Button Funktionalität mit verbesserter Validierung und modernisierte Benutzeroberfläche entsprechend den neuesten Odoo-Standards.
 
 ## Inhaltsverzeichnis
 
