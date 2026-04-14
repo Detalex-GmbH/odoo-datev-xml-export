@@ -6,7 +6,7 @@ import base64
 import logging
 from collections import namedtuple
 
-from odoo import api, models
+from odoo import _, api, models
 from odoo.tools import pdf
 
 _logger = logging.getLogger(__name__)
@@ -91,7 +91,7 @@ class DatevPdfGenerator(models.AbstractModel):
             )
             # Attach the PDF to the move
             move.message_post(
-                body="PDF generated while exporting to DATEV",
+                body=_("PDF generated while exporting to DATEV"),
                 attachments=[
                     ("%s.pdf" % move.name, base64.b64decode(attachment["datas"]))
                 ],

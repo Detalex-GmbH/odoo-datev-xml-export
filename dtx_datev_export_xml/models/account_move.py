@@ -159,30 +159,33 @@ class AccountMove(models.Model):
         return False
 
     def datev_delivery_date(self):
-        self.ensure_one()
-        if "stock.move" not in self.env:
-            _logger.info("Invoice date used as delivery date.")
-            return self.invoice_date
+        """Return the most recent delivery date from done stock pickings.
 
-        pickings = self.env["stock.move"]
-        if self.move_type == "out_invoice":
-            if hasattr(self, "invoice_line_ids") and hasattr(
-                self.invoice_line_ids, "sale_line_ids"
-            ):
-                pickings = self.mapped(
-                    "invoice_line_ids.sale_line_ids.order_id.picking_ids"
-                )
-        elif self.move_type == "in_invoice":
-            # check invoice_line_ids.purchase_order_id exists
-            if hasattr(self, "invoice_line_ids") and hasattr(
-                self.invoice_line_ids, "purchase_order_id"
-            ):
+        Lookup path depends on invoice type:
+        - Customer invoice → sale order → outgoing pickings
+        - Vendor bill      → purchase order → incoming pickings
+
+        Falls back to invoice_date when no picking is found.
+        Must never raise — called from QWeb template during XML generation.
+        """
+        self.ensure_one()
+        try:
+            if "stock.picking" not in self.env:
+                return self.invoice_date
+
+            pickings = self.env["stock.picking"]
+            if self.move_type == "out_invoice" and "sale_line_ids" in self.env["account.move.line"]._fields:
+                pickings = self.mapped("invoice_line_ids.sale_line_ids.order_id.picking_ids")
+            elif self.move_type == "in_invoice" and "purchase_order_id" in self.env["account.move.line"]._fields:
                 pickings = self.mapped("invoice_line_ids.purchase_order_id.picking_ids")
 
-        if pickings:
-            return pickings.sorted("date", reverse=True)[0].date.date()
+            done_pickings = pickings.filtered(lambda p: p.state == "done" and p.date)
+            if done_pickings:
+                return done_pickings.sorted("date", reverse=True)[0].date.date()
 
-        _logger.info("Invoice date used as delivery date.")
+        except Exception:
+            _logger.warning("Error computing delivery date for %s", self.name, exc_info=True)
+
         return self.invoice_date
 
     def datev_invoice_type(self):
