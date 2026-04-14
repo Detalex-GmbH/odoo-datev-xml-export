@@ -44,6 +44,8 @@
         'l10n_de',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'data/cron.xml',
         'views/account_tax_views.xml',
         'views/res_config_settings_views.xml',
     ],
