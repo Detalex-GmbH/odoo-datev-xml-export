@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2025 Detalex GmbH <https://detalex.de>
+# Copyright (c) 2025-2026 Detalex GmbH <https://detalex.de>
 # License Other proprietary
-
 # pylint: disable=invalid-name
+
 import base64
 import io
 import logging
@@ -46,7 +46,7 @@ class DatevZipGenerator(models.AbstractModel):
                 zipfile.ZIP_DEFLATED,
             )
 
-            exaptions = ""
+            errors = []
             for invoice in invoices.with_context(progress_iter=True):
                 try:
                     _logger.debug(
@@ -73,27 +73,32 @@ class DatevZipGenerator(models.AbstractModel):
                         zipfile.ZIP_DEFLATED,
                     )
                 except Exception as e:
-                    error_msg = str(e)
-                    exaptions += error_msg + "\n"
+                    error_msg = f"{invoice.name}: {e}"
+                    errors.append(error_msg)
                     _logger.error(
                         "Error while generating zip file for invoice %s: %s",
                         invoice.name,
-                        error_msg,
+                        str(e),
                     )
-                    invoice.datev_validation = error_msg
+                    invoice.datev_validation = str(e)
 
-            if exaptions:
+            if errors:
                 export._compute_problematic_invoices_count()
 
-                # Speichere Fehler in export.exception_info
-                export.exception_info = exaptions
+                # Append to existing exception_info (XSD validation errors may already be there)
+                existing = export.exception_info or ""
+                new_errors = "\n".join(errors)
+                if existing:
+                    export.exception_info = f"{existing}\n{new_errors}"
+                else:
+                    export.exception_info = new_errors
 
                 # Markiere Export als failed
                 export.state = "failed"
 
                 _logger.warning(
                     "DATEV Export completed with errors:\n%s",
-                    exaptions,
+                    new_errors,
                 )
             zip_file.close()
             return base64.b64encode(s.getvalue())

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2025 Detalex GmbH <https://detalex.de>
+# Copyright (c) 2025-2026 Detalex GmbH <https://detalex.de>
 # License Other proprietary
 
 # Part of Detalex. See LICENSE file for full copyright and licensing details.

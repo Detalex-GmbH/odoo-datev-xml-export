@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2025 Detalex GmbH <https://detalex.de>
+# Copyright (c) 2025-2026 Detalex GmbH <https://detalex.de>
 # License Other proprietary
-
 # pylint: disable=assigning-non-slot
 # pylint: disable=invalid-name
 # pylint: disable=no-raise-unlink
 # pylint: disable=pointless-statement
 # pylint: disable=no-else-return
 # pylint: disable=unused-format-string-key
+
 # pylint: disable=redefined-outer-name
 # pylint: disable=simplifiable-if-expression
 import datetime
 import logging
 import time
+import urllib.parse
+import urllib.request
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
@@ -165,6 +167,11 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
     )
 
     exception_info = fields.Text(readonly=True)
+    exception_reported = fields.Boolean(
+        default=False,
+        readonly=True,
+        help='True when exception was reported to Detalex support.',
+    )
 
     state = fields.Selection(
         [
@@ -228,7 +235,8 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
             # datev_validation kann False, None oder "" sein = kein Problem
             # Nur wenn es einen nicht-leeren String gibt = Problem
             problematic = r.invoice_ids.filtered(
-                lambda inv: inv.datev_validation and isinstance(inv.datev_validation, str) and inv.datev_validation.strip()
+                lambda inv: inv.datev_validation and isinstance(
+                    inv.datev_validation, str) and inv.datev_validation.strip()
             )
             r.problematic_invoices_count = len(problematic)
 
@@ -326,10 +334,65 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
         except Exception as e:
             _logger.error("[EXPORT] Exception in get_zip(): %s", str(e), exc_info=True)
             msg = e.name if hasattr(e, "name") else str(e)
-            self.write({"exception_info": msg, "state": "failed"})
-            _logger.error("[EXPORT] Set exception_info and state=failed due to exception")
+            existing = self.exception_info or ""
+            combined = f"{existing}\n{msg}" if existing else msg
+            self.write({"exception_info": combined, "state": "failed"})
 
         self._compute_problematic_invoices_count()
+
+        # Auto-report errors to Detalex support (must never break the export flow)
+        try:
+            self_fresh = self.browse(self.id)
+            if self_fresh.state == "failed" and self_fresh.exception_info:
+                self_fresh._report_exception_to_detalex()
+        except Exception:  # pylint: disable=broad-except
+            _logger.warning("[EXPORT] Auto-report to Detalex failed", exc_info=True)
+
+    def _report_exception_to_detalex(self):
+        """Send consolidated exception_info to Detalex client_log endpoint."""
+        try:
+            dbuuid = self.env['ir.config_parameter'].sudo().get_param(
+                'database.uuid', ''
+            )
+            dbname = self.env.cr.dbname
+            company = self.env.company.name or dbname
+
+            payload = str({
+                'dbuuid': dbuuid,
+                'type': 'error',
+                'subject': f'DATEV Export failed: {company} ({dbname})',
+                'body': self.exception_info or '',
+            })
+
+            data = urllib.parse.urlencode({
+                'arg0': payload,
+            }).encode('utf-8')
+
+            req = urllib.request.Request(
+                'https://detalex.de/client_log',
+                data=data,
+                method='POST',
+            )
+            req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+            with urllib.request.urlopen(req, timeout=10):
+                pass
+
+            self.write({'exception_reported': True})
+            _logger.info("[EXPORT] Exception reported to Detalex for export %s", self.id)
+
+        except Exception as e:  # pylint: disable=broad-except
+            _logger.warning(
+                "[EXPORT] Could not report exception to Detalex: %s", e
+            )
+
+    def action_report_exception(self):
+        """Button action: manually send exception to Detalex support."""
+        self.ensure_one()
+        if not self.exception_info:
+            raise UserError(_("No exception to report."))
+        self._report_exception_to_detalex()
+        if not self.exception_reported:
+            raise UserError(_("Fehler konnte nicht gesendet werden. Bitte prüfen Sie die Netzwerkverbindung."))
 
     @api.model
     def cron_run_pending_export(self):
@@ -472,7 +535,7 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
         # set datev_validation to False and clear exception_info ONLY before getting new zip
         self.invoice_ids.write({"datev_validation": False})
-        self.write({"exception_info": False})
+        self.write({"exception_info": False, "exception_reported": False})
         self.get_zip()
         # Only validate if export did NOT fail
         if self.state != "failed":
@@ -482,7 +545,7 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
         # DO NOT clear exception_info - if there are errors from get_zip(), keep them!
         # Only clear if state is NOT 'failed'
         if self.state != "failed":
-            self.write({"exception_info": False})
+            self.write({"exception_info": False, "exception_reported": False})
 
         generator = self.env["datev.xml.generator"]
         for invoice in self.invoice_ids:
@@ -541,7 +604,7 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
             r.write(
                 {
                     "state": "pending",
-                    "exception_info": None,
+                    "exception_info": False, "exception_reported": False,
                 }
             )
 
@@ -572,7 +635,7 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
             if r.attachment_id:
                 r.attachment_id.unlink
 
-            r.write({"state": "draft", "exception_info": False})
+            r.write({"state": "draft", "exception_info": False, "exception_reported": False})
 
     def action_show_invalid_invoices_view(self):
         """🚨 Magischer Button: Zeigt alle Rechnungen mit Validierungsfehlern"""

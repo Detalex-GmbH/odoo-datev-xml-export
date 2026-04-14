@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LedgerImport xmlns="http://xml.datev.de/bedi/tps/ledger/v060" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://xml.datev.de/bedi/tps/ledger/v060 Belegverwaltung_online_ledger_import_v060.xsd" version="6.0" 
+<LedgerImport xmlns="http://xml.datev.de/bedi/tps/ledger/v060" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xml.datev.de/bedi/tps/ledger/v060 Belegverwaltung_online_ledger_import_v060.xsd" version="6.0"
 generator_info="DATEV" generating_system="DATEV-Musterdaten" xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug">
   <consolidate consolidatedAmount="2587.00" consolidatedDate="2023-02-05" consolidatedInvoiceId="R2023x204" consolidatedCurrencyCode="EUR" consolidatedDeliveryDate="2023-02-02">
 	<accountsPayableLedger>
@@ -68,7 +68,7 @@ generator_info="DATEV" generating_system="DATEV-Musterdaten" xml_data="Kopie nur
 <!--	<orderId>5KK77592Y773816</orderId>-->
 		<supplierName>Musterlieferant</supplierName>
 		<supplierCity>Musterort</supplierCity>
-    </accountsPayableLedger> 
+    </accountsPayableLedger>
 	<accountsPayableLedger>
 		<date>2023-02-05</date>
 		<amount>100.00</amount>
@@ -90,6 +90,6 @@ generator_info="DATEV" generating_system="DATEV-Musterdaten" xml_data="Kopie nur
 <!--	<orderId>5KK77592Y773816</orderId>-->
 		<supplierName>Musterlieferant</supplierName>
 		<supplierCity>Musterort</supplierCity>
-    </accountsPayableLedger>	
+    </accountsPayableLedger>
 	</consolidate>
 </LedgerImport>

@@ -167,8 +167,8 @@
                                     <strong>⚠️ Wichtig:</strong> Sprechen Sie mit Ihrer Steuerkanzlei, bevor Sie diese Option aktivieren!
                                 </p>
                                 <p style="margin: 0; font-size: 12px;">
-                                    <strong>Deaktiviert:</strong> DATEV ordnet Steuern automatisch zu • 
-                                    <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes • 
+                                    <strong>Deaktiviert:</strong> DATEV ordnet Steuern automatisch zu •
+                                    <strong>Aktiviert:</strong> DATEV nutzt die in Odoo hinterlegten BU-Codes •
                                     <i class="fa fa-book"/>
                                     <a href="https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/19.0/dtx_datev_export/README_BU_CODE.md" target="_blank">
                                         Dokumentation
@@ -212,7 +212,7 @@
                     <group
                         string="Exception Info"
                         name="exception_info"
-                        invisible="exception_info == False"
+                        invisible="not exception_info"
                     >
                         <field
                             name="exception_info"
@@ -221,6 +221,21 @@
                             class="alert alert-danger"
                             role="alert"
                         />
+                        <div colspan="2">
+                            <field name="exception_reported" invisible="1"/>
+                            <button
+                                name="action_report_exception"
+                                type="object"
+                                string="Fehler an Detalex melden"
+                                class="btn-danger"
+                                icon="fa-paper-plane"
+                                invisible="exception_reported"
+                                confirm="Fehlermeldung an Detalex Support senden?"
+                            />
+                            <span class="text-success" invisible="not exception_reported">
+                                <i class="fa fa-check"/> Fehler wurde an Detalex gemeldet
+                            </span>
+                        </div>
                     </group>
                 </sheet>
                 <chatter>
