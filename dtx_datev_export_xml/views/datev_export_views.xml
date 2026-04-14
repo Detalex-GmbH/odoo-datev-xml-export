@@ -219,7 +219,7 @@
                     <group
                         string="Exception Info"
                         name="exception_info"
-                        invisible="exception_info == False"
+                        invisible="not exception_info"
                     >
                         <field
                             name="exception_info"
@@ -228,6 +228,15 @@
                             class="alert alert-danger"
                             role="alert"
                         />
+                        <div colspan="2">
+                            <field name="exception_reported" invisible="1"/>
+                            <button name="action_report_exception" type="object" string="Fehler an Detalex melden"
+                                    class="btn-danger" icon="fa-paper-plane" invisible="exception_reported"
+                                    confirm="Fehlermeldung an Detalex Support senden?"/>
+                            <span class="text-success" invisible="not exception_reported">
+                                <i class="fa fa-check"/> Fehler wurde an Detalex gemeldet
+                            </span>
+                        </div>
                     </group>
                 </sheet>
                 <chatter>
