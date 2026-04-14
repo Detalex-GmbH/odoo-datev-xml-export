@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ir_cron_dtx_datev_send_system_data" model="ir.cron">
+        <field name="name">Detalex DATEV: Send System Data</field>
+        <field name="model_id" ref="dtx_datev_export.model_dtx_client_report"/>
+        <field name="state">code</field>
+        <field name="code">model.send_system_data()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+    </record>
+</odoo>
