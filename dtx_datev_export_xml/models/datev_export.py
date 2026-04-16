@@ -172,11 +172,11 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
     state = fields.Selection(
         [
-            ("draft", _("Draft")),
-            ("pending", _("Pending")),
-            ("running", _("Running")),
-            ("done", _("Done")),
-            ("failed", _("Failed")),
+            ("draft", "Draft"),
+            ("pending", "Pending"),
+            ("running", "Running"),
+            ("done", "Done"),
+            ("failed", "Failed"),
         ],
         string="Status",
         default="draft",

@@ -19,10 +19,31 @@ class DtxClientReport(models.AbstractModel):
     _description = 'Detalex Client Data Report'
 
     @api.model
+    def _annotate_dtx_addon_versions(self, apps):
+        """Return the apps list with versions appended to dtx_* entries.
+
+        Entries that already contain a version (identified by a space+paren)
+        are returned unchanged, so the call is idempotent.
+        """
+        dtx_names = [a for a in apps if a.startswith('dtx_') and ' (' not in a]
+        if not dtx_names:
+            return apps
+        modules = self.env["ir.module.module"].sudo().search([
+            ("state", "=", "installed"),
+            ("name", "in", dtx_names),
+        ])
+        versions = {m.name: m.installed_version for m in modules}
+        return [
+            f"{a} ({versions[a]})" if a in versions else a
+            for a in apps
+        ]
+
+    @api.model
     def send_system_data(self, cron_mode=True):
         """Send system data to the Detalex server."""
         try:
             msg = self.env['publisher_warranty.contract']._get_message()
+            msg['apps'] = self._annotate_dtx_addon_versions(msg.get('apps', []))
             arguments = {'arg0': str(msg), 'action': 'update'}
             response = requests.post(DETALEX_URL, data=arguments, timeout=30)
             response.raise_for_status()
