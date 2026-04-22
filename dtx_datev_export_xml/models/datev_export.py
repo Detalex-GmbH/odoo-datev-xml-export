@@ -302,17 +302,16 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
             self.write({"state": "running"})
 
-            zip_file = self.generate_zip(self.invoice_ids, self.check_xsd, self)
+            zip_data = self.generate_zip(self.invoice_ids, self.check_xsd, self)
 
-            # Reload self from database to get updated state from generate_zip() (may be "failed" if errors occurred)
+            # Reload self from database to get updated state from generate_zip()
             self = self.browse(self.id)
 
-            # Only set state to "done" if it's not already "failed" from generate_zip()
-            if self.state != "failed":
+            if zip_data and self.state != "failed":
                 attachment = self.env["ir.attachment"].create(
                     {
                         "name": time.strftime("%Y_%m_%d_%H_%M") + ".zip",
-                        "datas": zip_file,
+                        "datas": zip_data,
                         "res_model": "datev.export.xml",
                         "res_id": self.id,
                         "res_field": "attachment_id",
@@ -320,16 +319,19 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
                     }
                 )
                 self.write({"attachment_id": attachment.id, "state": "done"})
-                # add as odoo attachment to the record
                 self.message_post(
                     body=self.get_description(),
                     attachment_ids=[attachment.id],
                 )
+                # Send success log to Detalex server
+                self._report_success_to_detalex()
             else:
-                # State is "failed" - DO NOT create attachment with incomplete/invalid ZIP
-                # User can see errors in exception_info and invoice.datev_validation
+                # generate_zip() returned None or state is already "failed"
+                # Errors are already in exception_info and invoice.datev_validation
                 _logger.warning(
-                    "[EXPORT] Export %s is FAILED - NO attachment created. Errors in exception_info: %s", self.id, self.exception_info)
+                    "[EXPORT] Export %s fehlgeschlagen — kein ZIP erstellt. Fehler: %s",
+                    self.id, self.exception_info,
+                )
 
         except Exception as e:
             _logger.error("[EXPORT] Exception in get_zip(): %s", str(e), exc_info=True)
@@ -347,6 +349,39 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
                 self_fresh._report_exception_to_detalex()
         except Exception:  # pylint: disable=broad-except
             _logger.warning("[EXPORT] Auto-report to Detalex failed", exc_info=True)
+
+    def _report_success_to_detalex(self):
+        """Send success info to Detalex client_log endpoint."""
+        try:
+            dbuuid = self.env['ir.config_parameter'].sudo().get_param(
+                'database.uuid', ''
+            )
+            dbname = self.env.cr.dbname
+            company = self.env.company.name or dbname
+            invoice_count = len(self.invoice_ids)
+
+            payload = str({
+                'dbuuid': dbuuid,
+                'type': 'info',
+                'subject': f'DATEV Export OK: {company} ({dbname}) – {invoice_count} Belege',
+                'body': self.get_description(),
+            })
+
+            data = urllib.parse.urlencode({
+                'arg0': payload,
+            }).encode('utf-8')
+
+            req = urllib.request.Request(
+                'https://detalex.de/client_log',
+                data=data,
+                method='POST',
+            )
+            req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+            with urllib.request.urlopen(req, timeout=10):
+                pass
+
+        except Exception:  # pylint: disable=broad-except
+            _logger.debug("[EXPORT] Could not report success to Detalex", exc_info=True)
 
     def _report_exception_to_detalex(self):
         """Send consolidated exception_info to Detalex client_log endpoint."""
@@ -427,19 +462,20 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
             if not invoice_ids:
                 return
 
+            invoices_to_check = self.env["account.move"].browse(invoice_ids)
             # check all invoice have allowed type
             allowed_types = ["out_invoice", "in_invoice", "out_refund", "in_refund"]
-            invoices_types = invoices.mapped("move_type")
+            invoices_types = invoices_to_check.mapped("move_type")
             # check all invoice have allowed type
-            if not all(
-                invoice_type in allowed_types for invoice_type in invoices_types
-            ):
+            invalid_types = [t for t in invoices_types if t not in allowed_types]
+            if invalid_types:
                 raise UserError(
                     _(
-                        "You can't export invoices with the following types:\n%s\n"
-                        "Please select only invoices with the following types:\n%s"
+                        "Folgende Dokumententypen können nicht exportiert werden: %s\n"
+                        "Erlaubte Typen: %s\n"
+                        "Bitte wählen Sie nur Rechnungen und Gutschriften aus."
                     )
-                    % (", ".join(invoices_types), ", ".join(allowed_types))
+                    % (", ".join(invalid_types), ", ".join(allowed_types))
                 )
 
             self.env.cr.execute(
@@ -461,8 +497,9 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
             if missing_names:
                 raise UserError(
-                    _("Missing attachments for the following documents:\n")
-                    + "\n".join(missing_names)
+                    _("Folgende Dokumente haben kein PDF angehängt:\n%s\n\n"
+                      "Bitte laden Sie für diese Rechnungen jeweils ein PDF-Dokument als Anhang hoch.")
+                    % "\n".join(missing_names)
                 )
 
         if not invoice_ids and self.env.context.get("active_model") == "account.move":
@@ -623,17 +660,8 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/18.0/dtx_datev_export
 
             r.attachment_id.unlink()
 
-            # remove datev file
-            if r.datev_file:
-                r.datev_file = False
-            if r.datev_filename:
-                r.datev_filename = False
-            if r.datev_filesize:
-                r.datev_filesize = False
-
-            # remove attachment
-            if r.attachment_id:
-                r.attachment_id.unlink
+            # Note: datev_file, datev_filename, datev_filesize are related/computed fields
+            # They are automatically cleared when the attachment is deleted above (line 624)
 
             r.write({"state": "draft", "exception_info": False, "exception_reported": False})
 

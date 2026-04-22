@@ -15,13 +15,33 @@ class AccountMoveLine(models.Model):
 
     def datev_price_information(self):
         self.ensure_one()
-        return self.tax_ids.compute_all(
-            self.price_unit * (1 - (self.discount / 100.0)),
-            self.currency_id,
+        price = self.price_unit * (1 - (self.discount / 100.0))
+        currency = self.currency_id or self.move_id.currency_id or self.company_currency_id
+        if not currency:
+            raise ValueError(
+                "Rechnung '%s', Zeile '%s': Keine Währung hinterlegt. "
+                "Bitte prüfen Sie die Währung auf der Rechnung und der Rechnungszeile."
+                % (self.move_id.name, self.name or self.id)
+            )
+        result = self.tax_ids.compute_all(
+            price,
+            currency,
             self.quantity,
             product=self.product_id,
             partner=self.move_id.partner_id,
         )
+        if not result or not isinstance(result, dict):
+            _logger.warning(
+                "Rechnung '%s', Zeile '%s': Steuerberechnung lieferte kein gültiges Ergebnis. "
+                "Bitte prüfen Sie die Steuerkonfiguration dieser Rechnungszeile.",
+                self.move_id.name, self.name or self.id,
+            )
+            return {
+                "total_included": price * self.quantity,
+                "total_excluded": price * self.quantity,
+                "taxes": [],
+            }
+        return result
 
     def datev_booking_text(self):
         self.ensure_one()
@@ -29,7 +49,10 @@ class AccountMoveLine(models.Model):
 
     def datev_name(self):
         self.ensure_one()
-        return self.name[:60] or (self.product_id.name[:60] if self.product_id else "") or ""
+        name = self.name or ""
+        if not name and self.product_id:
+            name = self.product_id.name or ""
+        return name[:60]
 
     def datev_cost_category_id(self):
         self.ensure_one()
@@ -129,6 +152,21 @@ class AccountMove(models.Model):
 
     def datev_format_total(self, value, prec=2):
         self.ensure_one()
+        if value is None or value is False:
+            _logger.warning(
+                "Rechnung '%s': Betrag ist leer (None/False). "
+                "Bitte prüfen Sie die Beträge auf der Rechnung.",
+                self.name,
+            )
+            value = 0.0
+        try:
+            value = float(value)
+        except (TypeError, ValueError):
+            raise ValueError(
+                "Rechnung '%s': Ungültiger Betrag '%s'. "
+                "Bitte prüfen Sie die Beträge auf der Rechnung."
+                % (self.name, value)
+            )
         return (
             f"{-value:.{prec}f}"
             if self.move_type.endswith("_refund")

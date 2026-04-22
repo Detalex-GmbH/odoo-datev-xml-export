@@ -42,9 +42,21 @@ class DatevPdfGenerator(models.AbstractModel):
     def generate_pdf(self, move):
 
         def merge_pdfs_to_base64(attachments):
-            pdf_datas = [
-                base64.decodebytes(attachment.datas) for attachment in attachments
-            ]
+            pdf_datas = []
+            for attachment in attachments:
+                if not attachment.datas:
+                    _logger.warning(
+                        "Rechnung '%s': PDF-Anhang '%s' (ID: %s) enthält keine Daten und wird übersprungen.",
+                        move.name, attachment.name, attachment.id,
+                    )
+                    continue
+                pdf_datas.append(base64.decodebytes(attachment.datas))
+            if not pdf_datas:
+                raise ValueError(
+                    "Rechnung '%s': Alle PDF-Anhänge sind leer. "
+                    "Bitte prüfen Sie die angehängten Dokumente."
+                    % move.name
+                )
             report = namedtuple("Report", ["content", "filetype"])
             report_make = report._make((pdf.merge_pdf(pdf_datas), "pdf"))
             return report_make.content
@@ -57,11 +69,12 @@ class DatevPdfGenerator(models.AbstractModel):
 
         if not attachments:
             if is_bill:
-                # If no attachment found, raise an error if the move is a bill
-                error_msg = "No PDF attachment found for bill %s (%s)" % (move.name, move.id)
-                _logger.error(
-                    "No PDF attachment found for bill %s (%s)", move.name, move.id
-                )
+                error_msg = (
+                    "Rechnung '%s': Kein PDF-Anhang gefunden. "
+                    "Eingangsrechnungen benötigen ein angehängtes PDF-Dokument. "
+                    "Bitte laden Sie das PDF der Rechnung als Anhang hoch."
+                ) % move.name
+                _logger.error(error_msg)
                 raise ValueError(error_msg)
             # else move is a invoice, so we can generate a document
             report = self.env["ir.actions.report"].search(
@@ -72,8 +85,12 @@ class DatevPdfGenerator(models.AbstractModel):
                 limit=1,
             )
             if not report:
-                _logger.error("No report found for model account.move")
-                raise ValueError("No report found for model account.move")
+                error_msg = (
+                    "Rechnung '%s': Kein Rechnungsbericht (Report) gefunden. "
+                    "Bitte prüfen Sie, ob der Rechnungsbericht '%s' installiert und aktiv ist."
+                ) % (move.name, self.report_name())
+                _logger.error(error_msg)
+                raise ValueError(error_msg)
 
             new_invoice = report._render(
                 res_ids=move.ids, report_ref=self.report_name()
@@ -93,11 +110,11 @@ class DatevPdfGenerator(models.AbstractModel):
             move.message_post(
                 body="PDF generated while exporting to DATEV",
                 attachments=[
-                    ("%s.pdf" % move.name, base64.b64decode(attachment["datas"]))
+                    ("%s.pdf" % move.name, base64.b64decode(attachment.datas))
                 ],
             )
             # Return the PDF content as a base64 encoded string
-            return base64.b64decode(attachment["datas"])
+            return base64.b64decode(attachment.datas)
 
         if len(attachments) > 1:
             # If there are multiple attachments, merge them
@@ -105,5 +122,10 @@ class DatevPdfGenerator(models.AbstractModel):
             return merged_pdf
 
         attachment = attachments[0]
-        # Return the PDF content as a base64 encoded string
-        return base64.b64decode(attachment["datas"])
+        if not attachment.datas:
+            raise ValueError(
+                "Rechnung '%s': PDF-Anhang '%s' (ID: %s) enthält keine Daten. "
+                "Bitte laden Sie das PDF erneut hoch."
+                % (move.name, attachment.name, attachment.id)
+            )
+        return base64.b64decode(attachment.datas)
