@@ -344,6 +344,8 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/17.0/dtx_datev_export
                     body=self.get_description(),
                     attachment_ids=[attachment.id],
                 )
+                # Send success log to Detalex server
+                self._report_success_to_detalex()
             else:
                 # State is "failed" - DO NOT create attachment with incomplete/invalid ZIP
                 # User can see errors in exception_info and invoice.datev_validation
@@ -367,6 +369,39 @@ https://github.com/Detalex-GmbH/odoo-datev-xml-export/blob/17.0/dtx_datev_export
                 self_fresh._report_exception_to_detalex()
         except Exception:  # pylint: disable=broad-except
             _logger.warning("[EXPORT] Auto-report to Detalex failed", exc_info=True)
+
+    def _report_success_to_detalex(self):
+        """Send success info to Detalex client_log endpoint."""
+        try:
+            dbuuid = self.env['ir.config_parameter'].sudo().get_param(
+                'database.uuid', ''
+            )
+            dbname = self.env.cr.dbname
+            company = self.env.company.name or dbname
+            invoice_count = len(self.invoice_ids)
+
+            payload = str({
+                'dbuuid': dbuuid,
+                'type': 'info',
+                'subject': f'DATEV Export OK: {company} ({dbname}) – {invoice_count} Belege',
+                'body': self.get_description(),
+            })
+
+            data = urllib.parse.urlencode({
+                'arg0': payload,
+            }).encode('utf-8')
+
+            req = urllib.request.Request(
+                'https://detalex.de/client_log',
+                data=data,
+                method='POST',
+            )
+            req.add_header('Content-Type', 'application/x-www-form-urlencoded')
+            with urllib.request.urlopen(req, timeout=10):
+                pass
+
+        except Exception:  # pylint: disable=broad-except
+            _logger.debug("[EXPORT] Could not report success to Detalex", exc_info=True)
 
     def _report_exception_to_detalex(self):
         """Send consolidated exception_info to Detalex client_log endpoint."""
