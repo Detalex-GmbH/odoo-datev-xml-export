@@ -8,6 +8,7 @@
 import base64
 import io
 import logging
+import urllib.parse
 import zipfile
 from datetime import date, timedelta
 from unittest.mock import patch, MagicMock
@@ -1652,6 +1653,122 @@ class TestDatevExport(TestBase):
 
         self.assertEqual(datev_export.state, "failed")
         self.assertTrue(datev_export.exception_info)
+
+    def test_report_success_sends_correct_payload(self):
+        """_report_success_to_detalex sends dbuuid, type, subject, body."""
+        invoice = self.create_out_invoice(
+            self.customer_de, self.start_date, self.end_date
+        )
+        self.create_invoice_attachment(invoice)
+        datev_export = self.DatevExportObj.create({
+            "date_start": self.start_date,
+            "date_stop": self.end_date,
+        })
+        datev_export.write({"state": "done"})
+
+        captured_req = {}
+        original_urlopen = "urllib.request.urlopen"
+
+        def capture_request(req, **kwargs):
+            captured_req["url"] = req.full_url
+            captured_req["data"] = req.data
+            captured_req["method"] = req.method
+            captured_req["content_type"] = req.get_header("Content-type")
+            return MagicMock()
+
+        with patch(original_urlopen, side_effect=capture_request):
+            datev_export._report_success_to_detalex()
+
+        self.assertTrue(captured_req, "No request was sent")
+        self.assertEqual(captured_req["url"], "https://detalex.de/client_log")
+        self.assertEqual(captured_req["method"], "POST")
+        self.assertEqual(
+            captured_req["content_type"], "application/x-www-form-urlencoded"
+        )
+
+        # Decode and verify payload content
+        decoded = urllib.parse.parse_qs(captured_req["data"].decode("utf-8"))
+        self.assertIn("arg0", decoded)
+        payload_str = decoded["arg0"][0]
+
+        self.assertIn("'type': 'info'", payload_str)
+        self.assertIn("DATEV Export OK", payload_str)
+        self.assertIn("'dbuuid':", payload_str)
+        self.assertIn("'body':", payload_str)
+        # Company name should be in the subject
+        company_name = self.env.company.name
+        self.assertIn(company_name, payload_str)
+
+    def test_report_success_does_not_crash_on_network_error(self):
+        """_report_success_to_detalex must never raise, even on network errors."""
+        datev_export = self.DatevExportObj.create({
+            "date_start": self.today,
+            "date_stop": self.today,
+        })
+        datev_export.write({"state": "done"})
+
+        with patch("urllib.request.urlopen", side_effect=ConnectionError("no network")):
+            # Must not raise
+            datev_export._report_success_to_detalex()
+
+    def test_report_exception_sends_correct_payload(self):
+        """_report_exception_to_detalex sends dbuuid, type=error, exception body."""
+        datev_export = self.DatevExportObj.create({
+            "date_start": self.today,
+            "date_stop": self.today,
+        })
+        error_msg = "XML Validation Error in RE/2024/00006.xml: bool not subscriptable"
+        datev_export.write({
+            "state": "failed",
+            "exception_info": error_msg,
+        })
+
+        captured_req = {}
+
+        def capture_request(req, **kwargs):
+            captured_req["data"] = req.data
+            return MagicMock()
+
+        with patch("urllib.request.urlopen", side_effect=capture_request):
+            datev_export._report_exception_to_detalex()
+
+        self.assertTrue(captured_req, "No request was sent")
+
+        decoded = urllib.parse.parse_qs(captured_req["data"].decode("utf-8"))
+        payload_str = decoded["arg0"][0]
+
+        self.assertIn("'type': 'error'", payload_str)
+        self.assertIn("DATEV Export failed", payload_str)
+        self.assertIn(error_msg, payload_str)
+        self.assertIn("'dbuuid':", payload_str)
+        self.assertTrue(datev_export.exception_reported)
+
+    def test_report_success_includes_invoice_count(self):
+        """Success payload includes the number of exported invoices."""
+        invoice = self.create_out_invoice(
+            self.customer_de, self.start_date, self.end_date
+        )
+        self.create_invoice_attachment(invoice)
+        datev_export = self.DatevExportObj.create({
+            "date_start": self.start_date,
+            "date_stop": self.end_date,
+        })
+        datev_export.write({"state": "done"})
+
+        captured_req = {}
+
+        def capture_request(req, **kwargs):
+            captured_req["data"] = req.data
+            return MagicMock()
+
+        with patch("urllib.request.urlopen", side_effect=capture_request):
+            datev_export._report_success_to_detalex()
+
+        decoded = urllib.parse.parse_qs(captured_req["data"].decode("utf-8"))
+        payload_str = decoded["arg0"][0]
+
+        invoice_count = len(datev_export.invoice_ids)
+        self.assertIn(f"{invoice_count} Belege", payload_str)
 
     # ------------------------------------------------------------------
     # Vorab-Validierung (_validate_invoices)

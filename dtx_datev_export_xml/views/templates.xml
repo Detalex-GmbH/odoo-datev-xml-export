@@ -115,7 +115,7 @@
             />
 
             <t t-foreach="doc.invoice_line_ids" t-as="line">
-                <t t-if="line.quantity != 0">
+                <t t-if="line.price_subtotal">
                     <t t-call="dtx_datev_export_xml.export_invoice_line" />
                 </t>
             </t>
