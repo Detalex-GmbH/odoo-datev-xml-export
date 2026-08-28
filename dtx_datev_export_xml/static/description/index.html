@@ -1,133 +1,133 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DATEV XML Export</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      line-height: 1.5;
-      margin: 0;
-      padding: 0 1rem 3rem;
-      max-width: 980px;
-      margin-inline: auto;
-    }
-    header {
-      padding: 2rem 0 1rem;
-    }
-    h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
-    h2 { margin-top: 2rem; font-size: 1.3rem; }
-    p.lead { color: #555; margin-top: 0; }
-    .grid img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid rgba(0,0,0,.06);
-      margin-bottom: .5rem;
-    }
-    .grid p {
-      margin-bottom: 1.5rem;
-    }
-    ul { padding-left: 1.2rem; }
-    .note {
-      background: #fff7e6;
-      border: 1px solid #ffe8b3;
-      padding: .75rem .9rem;
-      border-radius: 6px;
-    }
-    @media (prefers-color-scheme: dark) {
-      body { color: #ddd; background: #111; }
-      p.lead { color: #bbb; }
-      figure { background: #1a1a1a; border-color: #2a2a2a; }
-      figcaption { background: #151515; border-top-color: #2a2a2a; color: #bbb; }
-      .note { background: #2a2418; border-color: #4a3c1a; }
-    }
-  </style>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>DATEV XML Export</title>
+ <style>
+ :root {
+ color-scheme: light dark;
+ }
+ body {
+ font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+ line-height: 1.5;
+ margin: 0;
+ padding: 0 1rem 3rem;
+ max-width: 980px;
+ margin-inline: auto;
+ }
+ header {
+ padding: 2rem 0 1rem;
+ }
+ h1 { margin: 0 0 .25rem; font-size: 1.8rem; }
+ h2 { margin-top: 2rem; font-size: 1.3rem; }
+ p.lead { color: #555; margin-top: 0; }
+ .grid img {
+ display: block;
+ width: 100%;
+ height: auto;
+ border-radius: 8px;
+ border: 1px solid rgba(0,0,0,.06);
+ margin-bottom: .5rem;
+ }
+ .grid p {
+ margin-bottom: 1.5rem;
+ }
+ ul { padding-left: 1.2rem; }
+ .note {
+ background: #fff7e6;
+ border: 1px solid #ffe8b3;
+ padding: .75rem .9rem;
+ border-radius: 6px;
+ }
+ @media (prefers-color-scheme: dark) {
+ body { color: #ddd; background: #111; }
+ p.lead { color: #bbb; }
+ figure { background: #1a1a1a; border-color: #2a2a2a; }
+ figcaption { background: #151515; border-top-color: #2a2a2a; color: #bbb; }
+ .note { background: #2a2418; border-color: #4a3c1a; }
+ }
+ </style>
 </head>
 <body>
-  <header>
-    <h1>DATEV XML Export</h1>
-    <p class="lead">Exportiere Belege in DATEV XML – einfach, intuitiv und prüfsicher.</p>
-  </header>
+ <header>
+ <h1>DATEV XML Export</h1>
+ <p class="lead">Exportiere Belege in DATEV XML – einfach, intuitiv und prüfsicher.</p>
+ </header>
 
-  <section>
-    <h2>Überblick</h2>
-    <p>
-      Der Export ist bewusst einfach gestaltet: Wähle einen Zeitraum. Noch nicht exportierte Belege
-      im Zeitraum werden automatisch einbezogen. Optional prüft eine Validierung, ob alle DATEV-Pflichtangaben
-      vorhanden und formal korrekt sind (z.&nbsp;B. Kundenadressen, PDF‑Anhänge, Rechnungsnummern, Datentypen,
-      Ländercodes). Fehler werden angezeigt und die betroffenen Belege zur schnellen Korrektur verlinkt.
-      Anschließend lädst du einen gültigen DATEV‑XML‑Export inklusive zugehöriger Dateien herunter und kannst
-      ihn in DATEV Unternehmen online einziehen.
-    </p>
-  </section>
+ <section>
+ <h2>Überblick</h2>
+ <p>
+ Der Export ist bewusst einfach gestaltet: Wähle einen Zeitraum. Noch nicht exportierte Belege
+ im Zeitraum werden automatisch einbezogen. Optional prüft eine Validierung, ob alle DATEV-Pflichtangaben
+ vorhanden und formal korrekt sind (z.&nbsp;B. Kundenadressen, PDF‑Anhänge, Rechnungsnummern, Datentypen,
+ Ländercodes). Fehler werden angezeigt und die betroffenen Belege zur schnellen Korrektur verlinkt.
+ Anschließend lädst du einen gültigen DATEV‑XML‑Export inklusive zugehöriger Dateien herunter und kannst
+ ihn in DATEV Unternehmen online einziehen.
+ </p>
+ </section>
 
-  <section>
-    <h2>Screenshots</h2>
-    <div class="grid">
-      <p>
-        <img src="./1.png" alt="Kachel DATEV Export im Haupt-Dashboard" />
-        1) Kachel „DATEV Export“ im Haupt‑Dashboard – Einstieg in den Exportbereich.
-      </p>
-      <p>
-        <img src="./2.png" alt="Liste der Exporte mit Status" />
-        2) Liste der Exporte – Übersicht aller erstellten Exporte mit Status.
-      </p>
-      <p>
-        <img src="./3.png" alt="Exportformular mit Zeitraum und Validierungsoptionen" />
-        3) Export‑Formular – Zeitraum wählen, optional validieren, Export erstellen.
-      </p>
-    </div>
-  </section>
+ <section>
+ <h2>Screenshots</h2>
+ <div class="grid">
+ <p>
+ <img src="./1.png" alt="Kachel DATEV Export im Haupt-Dashboard" />
+ 1) Kachel „DATEV Export“ im Haupt‑Dashboard – Einstieg in den Exportbereich.
+ </p>
+ <p>
+ <img src="./2.png" alt="Liste der Exporte mit Status" />
+ 2) Liste der Exporte – Übersicht aller erstellten Exporte mit Status.
+ </p>
+ <p>
+ <img src="./3.png" alt="Exportformular mit Zeitraum und Validierungsoptionen" />
+ 3) Export‑Formular – Zeitraum wählen, optional validieren, Export erstellen.
+ </p>
+ </div>
+ </section>
 
-  <section>
-    <h2>Ablauf</h2>
-    <ul>
-      <li>Zeitraum (Time Range) auswählen.</li>
-      <li>Noch nicht exportierte Belege im Zeitraum werden automatisch einbezogen.</li>
-      <li>Optional: Validierung gegen DATEV‑Vorgaben (Pflichtfelder, Anhänge, Nummernkreise, Datentypen, Ländercodes).</li>
-      <li>Fehlerübersicht mit direkten Links zu betroffenen Belegen – schnelle Korrektur möglich.</li>
-      <li>Gültige DATEV‑XML‑Exportdatei inklusive Anhänge erzeugen und herunterladen.</li>
-      <li>Import in DATEV Unternehmen online durchführen.</li>
-    </ul>
-    <p class="note"><strong>Tipp:</strong> Nutze die Validierung vor dem Export, um Nacharbeiten zu minimieren.</p>
-  </section>
-  <section>
-    <h2>Versionsgeschichte</h2>
-    <ul>
-      <li><b>17.0.1.0</b>: Unified-Version mit Magic-Button-Validierung und umfassender Dokumentation</li>
-      <li><b>17.0.0.13</b>: Magic Button für DATEV-Validierungsfehler mit Animation und Gruppenrechten</li>
-      <li><b>17.0.0.12</b>: Refactoring von datev_cost_category, verbesserte Testabdeckung</li>
-      <li><b>17.0.0.11</b>: Entferntes datev_export_state-Feld und Referenzen</li>
-      <li><b>17.0.0.10</b>: Aufräumen von Buchungstext und Kurzbeschreibung der Rechnungszeilen</li>
-      <li><b>17.0.0.9</b>: Bugfixes in Tests und Übersetzungen</li>
-      <li><b>17.0.0.8</b>: Anpassungen am datev_exported-Feld und Pluralisierung</li>
-      <li><b>17.0.0.7</b>: Bugfix in Tests mit neuer PDF-Merge-Logik</li>
-      <li><b>17.0.0.6</b>: Mehrere PDF-Anhänge werden gemerged, Umbenennung Kunden-/Lieferantenexporte</li>
-      <li><b>17.0.0.5</b>: XML-Validierung vor Export hinzugefügt</li>
-      <li><b>17.0.0.4</b>: DATEV XML Export Menü zum Accountant-Menü hinzugefügt</li>
-      <li><b>17.0.0.3</b>: DATEV XML Export Menü ins Apps-Menü verschoben</li>
-      <li><b>17.0.0.2</b>: Bugfix im Rechnungs-Smart-Button</li>
-      <li><b>17.0.0.1</b>: DATEV XML Export Menü ins Hauptmenü aufgenommen</li>
-      <li><b>17.0.0.0</b>: Migration auf Odoo 17</li>
-    </ul>
-  </section>
-  <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #eee; font-size:.98rem; color:#666; display:flex; flex-wrap:wrap; align-items:center; gap:1.2em;">
-    <div>
-      <strong>Entwickler:</strong> Dietmar Hamm (<a href="mailto:hamm@detalex.de">hamm@detalex.de</a>),
-      Alexander Milgrud (<a href="mailto:milgrud@detalex.de">milgrud@detalex.de</a>)
-    </div>
-    <div style="margin-left:auto; display:flex; align-items:center; gap:.7em;">
-      <strong>Detalex GmbH</strong>
-      <a href="https://detalex.de" target="_blank" title="Website" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/dietmar-hamm-22a93b75/" target="_blank" title="LinkedIn" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5"/><line x1="7" y1="8" x2="7" y2="16"/><line x1="7" y1="16" x2="7" y2="16"/><circle cx="7" cy="6" r="1"/><path d="M17 16v-4a2 2 0 0 0-4 0v4"/><line x1="17" y1="8" x2="17" y2="16"/></svg></a>
-      <a href="https://www.instagram.com/detalex_gmbh/" target="_blank" title="Instagram" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
-    </div>
-  </footer>
+ <section>
+ <h2>Ablauf</h2>
+ <ul>
+ <li>Zeitraum (Time Range) auswählen.</li>
+ <li>Noch nicht exportierte Belege im Zeitraum werden automatisch einbezogen.</li>
+ <li>Optional: Validierung gegen DATEV‑Vorgaben (Pflichtfelder, Anhänge, Nummernkreise, Datentypen, Ländercodes).</li>
+ <li>Fehlerübersicht mit direkten Links zu betroffenen Belegen – schnelle Korrektur möglich.</li>
+ <li>Gültige DATEV‑XML‑Exportdatei inklusive Anhänge erzeugen und herunterladen.</li>
+ <li>Import in DATEV Unternehmen online durchführen.</li>
+ </ul>
+ <p class="note"><strong>Tipp:</strong> Nutze die Validierung vor dem Export, um Nacharbeiten zu minimieren.</p>
+ </section>
+ <section>
+ <h2>Versionsgeschichte</h2>
+ <ul>
+ <li><b>17.0.1.0</b>: Unified-Version mit Magic-Button-Validierung und umfassender Dokumentation</li>
+ <li><b>17.0.0.13</b>: Magic Button für DATEV-Validierungsfehler mit Animation und Gruppenrechten</li>
+ <li><b>17.0.0.12</b>: Refactoring von datev_cost_category, verbesserte Testabdeckung</li>
+ <li><b>17.0.0.11</b>: Entferntes datev_export_state-Feld und Referenzen</li>
+ <li><b>17.0.0.10</b>: Aufräumen von Buchungstext und Kurzbeschreibung der Rechnungszeilen</li>
+ <li><b>17.0.0.9</b>: Bugfixes in Tests und Übersetzungen</li>
+ <li><b>17.0.0.8</b>: Anpassungen am datev_exported-Feld und Pluralisierung</li>
+ <li><b>17.0.0.7</b>: Bugfix in Tests mit neuer PDF-Merge-Logik</li>
+ <li><b>17.0.0.6</b>: Mehrere PDF-Anhänge werden gemerged, Umbenennung Kunden-/Lieferantenexporte</li>
+ <li><b>17.0.0.5</b>: XML-Validierung vor Export hinzugefügt</li>
+ <li><b>17.0.0.4</b>: DATEV XML Export Menü zum Accountant-Menü hinzugefügt</li>
+ <li><b>17.0.0.3</b>: DATEV XML Export Menü ins Apps-Menü verschoben</li>
+ <li><b>17.0.0.2</b>: Bugfix im Rechnungs-Smart-Button</li>
+ <li><b>17.0.0.1</b>: DATEV XML Export Menü ins Hauptmenü aufgenommen</li>
+ <li><b>17.0.0.0</b>: Migration auf Odoo</li>
+ </ul>
+ </section>
+ <footer style="margin-top:3rem; padding-top:2rem; border-top:1px solid #eee; font-size:.98rem; color:#666; display:flex; flex-wrap:wrap; align-items:center; gap:1.2em;">
+ <div>
+ <strong>Entwickler:</strong> Dietmar Hamm (<a href="mailto:hamm@detalex.de">hamm@detalex.de</a>),
+ Alexander Milgrud (<a href="mailto:milgrud@detalex.de">milgrud@detalex.de</a>)
+ </div>
+ <div style="margin-left:auto; display:flex; align-items:center; gap:.7em;">
+ <strong>Detalex GmbH</strong>
+ <a href="https://detalex.de" target="_blank" title="Website" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg></a>
+ <a href="https://www.linkedin.com/in/dietmar-hamm-22a93b75/" target="_blank" title="LinkedIn" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.5"/><line x1="7" y1="8" x2="7" y2="16"/><line x1="7" y1="16" x2="7" y2="16"/><circle cx="7" cy="6" r="1"/><path d="M17 16v-4a2 2 0 0 0-4 0v4"/><line x1="17" y1="8" x2="17" y2="16"/></svg></a>
+ <a href="https://www.instagram.com/detalex_gmbh/" target="_blank" title="Instagram" style="display:inline-block; vertical-align:middle;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+ </div>
+ </footer>
 </body>
 </html>
